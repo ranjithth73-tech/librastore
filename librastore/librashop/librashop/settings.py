@@ -60,13 +60,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     # Project apps
-    "store",
-    "cart",
-    "transaction",
-    "vendors",
-    "reviews",
-    "coupons",
-    "users",
+    "librashop.store",
+    "librashop.cart",
+    "librashop.transaction",
+    "librashop.vendors",
+    "librashop.reviews",
+    "librashop.coupons",
+    "librashop.users",
 
     # Third-party
     "widget_tweaks",
@@ -87,7 +87,7 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 
 # ====== CUSTOM USER MODEL ======
-AUTH_USER_MODEL = "users.CustomUser"
+AUTH_USER_MODEL = "librashop.users.CustomUser"
 
 
 # ====== MIDDLEWARE ======
@@ -102,7 +102,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 
     # Custom
-    "cart.middleware.NoCacheMiddleware",
+    "librashop.cart.middleware.NoCacheMiddleware",
 ]
 
 
@@ -120,7 +120,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "store.context_processors.cart_wishlist_counts",
+                "librashop.store.context_processors.cart_wishlist_counts",
             ],
         },
     },
