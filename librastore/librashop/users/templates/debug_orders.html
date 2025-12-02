@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Debug Orders | LIBRA{% endblock %}
+
+{% block content %}
+<div style="padding: 100px 40px; background: #1a1a1a; color: #fff; min-height: 100vh;">
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <h2 style="color: #ffc107; margin-bottom: 30px;">🔍 Order Debug Information</h2>
+    
+    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+      <h3 style="color: #ffd54f;">Current User Info</h3>
+      <p><strong>Username:</strong> {{ user_info.username }}</p>
+      <p><strong>Email:</strong> {{ user_info.email }}</p>
+      <p><strong>User ID:</strong> {{ user_info.id }}</p>
+    </div>
+
+    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+      <h3 style="color: #ffd54f;">Customer Record</h3>
+      <p><strong>Customer Name:</strong> {{ customer.name }}</p>
+      <p><strong>Customer Email:</strong> {{ customer.email }}</p>
+      <p><strong>Just Created:</strong> {{ customer_created|yesno:"Yes,No" }}</p>
+    </div>
+
+    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+      <h3 style="color: #ffd54f;">Order Statistics</h3>
+      <p><strong>Your Orders:</strong> {{ orders.count }}</p>
+      <p><strong>Total Orders in Database:</strong> {{ all_orders_count }}</p>
+      <p><strong>Orphan Orders (no customer):</strong> {{ orphan_orders_count }}</p>
+    </div>
+
+    {% if orders %}
+      <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+        <h3 style="color: #ffd54f;">Your Orders</h3>
+        {% for order in orders %}
+          <div style="background: rgba(255,255,255,0.05); padding: 15px; margin-bottom: 10px; border-radius: 8px;">
+            <p><strong>Order #{{ order.id }}</strong></p>
+            <p>Date: {{ order.date_odered }}</p>
+            <p>Status: {{ order.status }}</p>
+            <p>Transaction ID: {{ order.transaction_id }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div style="background: rgba(255,0,0,0.2); padding: 20px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #ff0000;">
+        <h3 style="color: #ff6b6b;">❌ No Orders Found</h3>
+        <p>This customer has no orders linked.</p>
+        {% if orphan_orders_count > 0 %}
+          <p style="color: #ffc107;"><strong>⚠️ There are {{ orphan_orders_count }} orphan orders in the database that need to be linked to a customer.</strong></p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div style="margin-top: 30px;">
+      <a href="{% url 'orders' %}" style="background: #ffc107; color: #000; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block;">← Back to My Orders</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

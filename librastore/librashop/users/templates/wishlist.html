@@ -1,0 +1,401 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+My Wishlist | LIBRA
+{% endblock %}
+
+{% block content %}
+<div class="wishlist-container">
+  <div class="wishlist-header">
+    <h2><i class="bi bi-heart-fill"></i> My Wishlist</h2>
+    <p class="text-muted">Your favorite products saved for later</p>
+  </div>
+
+  <!-- Messages -->
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show custom-alert" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  <!-- Wishlist Stats -->
+  <div class="wishlist-stats">
+    <div class="stat-box">
+      <i class="bi bi-heart"></i>
+      <span class="stat-value">{{ total_items }}</span>
+      <span class="stat-label">Saved Items</span>
+    </div>
+  </div>
+
+  <!-- Wishlist Content -->
+  <div class="wishlist-content">
+    {% if wishlist_items %}
+      <div class="wishlist-grid">
+        {% for item in wishlist_items %}
+          <div class="wishlist-card">
+            <a href="{% url 'remove_from_wishlist' item.id %}" class="remove-btn" title="Remove from wishlist">
+              <i class="bi bi-x-circle-fill"></i>
+            </a>
+
+            {% if item.product.image %}
+              <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="product-image">
+            {% else %}
+              <div class="product-placeholder">
+                <i class="bi bi-image"></i>
+              </div>
+            {% endif %}
+
+            <div class="product-info">
+              <h5>{{ item.product.name }}</h5>
+              {% if item.product.description %}
+                <p class="product-description">{{ item.product.description|truncatewords:15 }}</p>
+              {% endif %}
+              <div class="product-price">₹{{ item.product.price }}</div>
+
+              {% if item.product.available %}
+                <span class="badge bg-success">Available</span>
+              {% else %}
+                <span class="badge bg-danger">Out of Stock</span>
+              {% endif %}
+            </div>
+
+            <div class="product-actions">
+              <a href="{% url 'product_detail' item.product.slug %}" class="btn btn-view">
+                <i class="bi bi-eye"></i> View Product
+              </a>
+              {% if item.product.available %}
+                <form action="{% url 'cart_add' item.product.id %}" method="POST" style="display: inline;">
+                  {% csrf_token %}
+                  <input type="hidden" name="quantity" value="1">
+                  <button type="submit" class="btn btn-cart">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
+                  </button>
+                </form>
+              {% endif %}
+            </div>
+
+            <div class="added-date">
+              <i class="bi bi-clock"></i> Added {{ item.added_at|timesince }} ago
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-wishlist">
+        <i class="bi bi-heart"></i>
+        <h4>Your Wishlist is Empty</h4>
+        <p>Save your favorite products to your wishlist and shop them later!</p>
+        <a href="{% url 'home' %}" class="btn btn-shop">
+          <i class="bi bi-shop"></i> Start Shopping
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+.wishlist-container {
+  min-height: 100vh;
+  padding: 100px 40px 60px;
+  background: radial-gradient(circle at top left, #8b6f00, #5a2a23, #0a0a0a);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.wishlist-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.wishlist-header h2 {
+  color: #ffd54f;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(255, 193, 7, 0.6);
+}
+
+.wishlist-header h2 i {
+  margin-right: 15px;
+}
+
+.custom-alert {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  color: #fff;
+  border-radius: 12px;
+}
+
+.wishlist-stats {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-radius: 15px;
+  padding: 25px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s ease;
+}
+
+.stat-box:hover {
+  border-color: rgba(255, 193, 7, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+}
+
+.stat-box i {
+  font-size: 2.5rem;
+  color: #ff6f61;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat-label {
+  color: #ffd54f;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.wishlist-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.wishlist-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.wishlist-card:hover {
+  border-color: rgba(255, 193, 7, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+  transform: translateY(-5px);
+}
+
+.remove-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 0, 0, 0.8);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-decoration: none;
+  z-index: 10;
+}
+
+.remove-btn:hover {
+  background: rgba(255, 0, 0, 1);
+  transform: scale(1.1);
+}
+
+.remove-btn i {
+  font-size: 1.2rem;
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.product-placeholder {
+  width: 100%;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.product-placeholder i {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.product-info {
+  margin-bottom: 15px;
+}
+
+.product-info h5 {
+  color: #ffd54f;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.product-description {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  color: #ffc107;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btn-view {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.btn-view:hover {
+  background: rgba(255, 193, 7, 0.3);
+  border-color: #ffc107;
+  color: #ffc107;
+}
+
+.btn-cart {
+  background: linear-gradient(90deg, #ffc107, #ff6f61);
+  color: #000;
+}
+
+.btn-cart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.6);
+}
+
+.added-date {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.empty-wishlist {
+  text-align: center;
+  padding: 80px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.empty-wishlist i {
+  font-size: 5rem;
+  color: rgba(255, 111, 97, 0.3);
+  margin-bottom: 20px;
+}
+
+.empty-wishlist h4 {
+  color: #ffd54f;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.empty-wishlist p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 25px;
+}
+
+.btn-shop {
+  background: linear-gradient(90deg, #ffc107, #ff6f61);
+  color: #000;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s ease;
+}
+
+.btn-shop:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .wishlist-container {
+    padding: 80px 20px 40px;
+  }
+
+  .wishlist-header h2 {
+    font-size: 2rem;
+  }
+
+  .wishlist-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-actions {
+    flex-direction: column;
+  }
+}
+</style>
+{% endblock %}

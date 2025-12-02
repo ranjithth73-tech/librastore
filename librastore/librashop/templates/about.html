@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}
+About Us | LIBRA 
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<style>
+  body {
+    background: radial-gradient(circle at top left, #ffc107, #ff6f61, #1a1a1a);
+    background-attachment: fixed;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    padding-top: 100px;
+  }
+
+  .about-container {
+    max-width: 1100px;
+    margin: auto;
+    background: rgba(30, 30, 30, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 60px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .about-header h1 {
+    color: #ffc107;
+    font-weight: 700;
+    font-size: 2.5rem;
+  }
+
+  .about-header p {
+    color: #ddd;
+    max-width: 700px;
+    margin: 10px auto 0;
+    font-size: 1.1rem;
+  }
+
+  .about-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .about-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .about-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.3);
+  }
+
+  .about-section h3 {
+    color: #ffb300;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .about-section p {
+    color: #ccc;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .about-sections {
+      grid-template-columns: 1fr;
+    }
+    .about-container {
+      padding: 40px 20px;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+
+
+<div class="about-container">
+  <div class="about-header">
+    <h1>About LIBRA</h1>
+    <p>We are a next-generation eCommerce platform focused on connecting buyers and vendors through trust, transparency, and technology.</p>
+  </div>
+
+  <div class="about-sections">
+    <div class="about-section">
+      <h3>🌟 Our Mission</h3>
+      <p>To empower local and global vendors by giving them a beautiful platform to showcase their products and reach customers effortlessly.</p>
+      <a href="{% url 'vendor_registration' %}">Click me!</a>
+    </div>
+
+    <div class="about-section">
+      <h3>⚡ Our Vision</h3>
+      <p>We aim to redefine online shopping by blending simplicity, security, and sustainability into every purchase.</p>
+    </div>
+
+    <div class="about-section">
+      <h3>🤝 Why Choose Us</h3>
+      <p>LIBRA stands for integrity, innovation, and inclusion — offering quality products, honest pricing, and a smooth customer experience.</p>
+    </div>
+
+    <div class="about-section">
+      <h3>💼 Meet Our Team</h3>
+      <p>Behind LIBRA is a team of passionate developers, designers, and dreamers who believe in transforming the future of digital commerce.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

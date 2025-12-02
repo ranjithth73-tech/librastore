@@ -1,0 +1,442 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}
+My Orders | LIBRA
+{% endblock %}
+
+{% block content %}
+<div class="orders-container">
+  <div class="orders-header">
+    <h2><i class="bi bi-bag-check-fill"></i> My Orders</h2>
+    <p class="text-muted">View and track your order history</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="orders-stats">
+    <div class="stat-box">
+      <i class="bi bi-receipt"></i>
+      <span class="stat-value">{{ total_orders }}</span>
+      <span class="stat-label">Total Orders</span>
+    </div>
+  </div>
+
+  <!-- Orders List -->
+  <div class="orders-content">
+    {% if orders_with_items %}
+      {% for order_data in orders_with_items %}
+        <div class="order-card" data-order-id="{{ order_data.order.id }}">
+          <div class="order-header-section">
+            <div class="order-info">
+              <h5>Order #{{ order_data.order.id }}</h5>
+              <span class="order-date">{{ order_data.order.date_odered|date:"M d, Y - h:i A" }}</span>
+            </div>
+            <div class="order-status">
+              <span id="order-status-{{ order_data.order.id }}" class="badge {% if order_data.order.status == 'paid' %}bg-success{% elif order_data.order.status == 'pending' %}bg-warning text-dark{% else %}bg-danger{% endif %}">{{ order_data.order.status|capfirst }}</span>
+            </div>
+          </div>
+
+          <div class="order-items">
+            {% for item in order_data.items %}
+              <div class="order-item">
+                {% if item.product and item.product.image %}
+                  <a href="{% url 'product_details_by_id' item.product.id %}" title="View product">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="item-image">
+                  </a>
+                {% elif item.product_image %}
+                  <img src="{{ item.product_image }}" alt="{{ item.product_name|default:'Ordered item' }}" class="item-image">
+                {% else %}
+                  <div class="item-placeholder">
+                    <i class="bi bi-image"></i>
+                  </div>
+                {% endif %}
+                <div class="item-details">
+                  {% if item.product %}
+                    <h6>
+                      <a href="{% url 'product_details_by_id' item.product.id %}" class="text-decoration-none text-light">{{ item.product.name }}</a>
+                    </h6>
+                  {% else %}
+                    <h6>{{ item.product_name|default:"Product (no longer available)" }}</h6>
+                  {% endif %}
+                  <p class="item-quantity">Quantity: {{ item.quantity }}</p>
+                  <p class="item-price">
+                    {% if item.product and item.product.price %}
+                      ₹{{ item.product.price }} x {{ item.quantity }}
+                    {% elif item.product_price %}
+                      ₹{{ item.product_price }} x {{ item.quantity }}
+                    {% else %}
+                      Price unavailable x {{ item.quantity }}
+                    {% endif %}
+                  </p>
+                </div>
+                <div class="item-total">
+                  <span>₹{{ item.line_total|floatformat:2 }}</span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="order-footer">
+            <div class="order-total">
+              <span class="total-label">Order Total:</span>
+              <span class="total-amount">₹{{ order_data.total|floatformat:2 }}</span>
+            </div>
+          </div>
+
+          <!-- Tracking Section -->
+          <div class="order-tracking" style="margin-top: 16px;">
+            <div class="tracking-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <span style="color:#ffd54f; font-weight:600;">Tracking</span>
+              <span id="track-label-{{ order_data.order.id }}" style="color:#fff; font-size:0.9rem;">{{ order_data.tracking.label }}</span>
+            </div>
+            <div class="progress" style="height:10px; background: rgba(255,255,255,0.15); border-radius:8px; overflow:hidden;">
+              <div id="track-bar-{{ order_data.order.id }}" class="progress-bar" role="progressbar" style="width: {{ order_data.tracking.percent }}%; background: linear-gradient(90deg,#ffc107,#ff6f61);" aria-valuenow="{{ order_data.tracking.percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            {% if order_data.tracking.tracking_number or order_data.tracking.carrier %}
+            <div class="tracking-meta" style="margin-top:8px; color: rgba(255,255,255,0.8); font-size:0.9rem;">
+              {% if order_data.tracking.carrier %}<span>Carrier: {{ order_data.tracking.carrier }}</span>{% endif %}
+              {% if order_data.tracking.tracking_number %}<span style="margin-left:12px;">Tracking #: {{ order_data.tracking.tracking_number }}</span>{% endif %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="empty-orders">
+        <i class="bi bi-inbox"></i>
+        <h4>No Orders Yet</h4>
+        <p>You haven't placed any orders. Start shopping now!</p>
+        <a href="{% url 'home' %}" class="btn btn-shop">
+          <i class="bi bi-shop"></i> Start Shopping
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+.orders-container {
+  min-height: 100vh;
+  padding: 100px 40px 60px;
+  background: radial-gradient(circle at top left, #8b6f00, #5a2a23, #0a0a0a);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.orders-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.orders-header h2 {
+  color: #ffd54f;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(255, 193, 7, 0.6);
+}
+
+.orders-header h2 i {
+  margin-right: 15px;
+}
+
+.orders-stats {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-radius: 15px;
+  padding: 25px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s ease;
+}
+
+.stat-box:hover {
+  border-color: rgba(255, 193, 7, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+}
+
+.stat-box i {
+  font-size: 2.5rem;
+  color: #ffc107;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat-label {
+  color: #ffd54f;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.orders-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.order-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-radius: 15px;
+  padding: 25px;
+  transition: 0.3s ease;
+}
+
+.order-card:hover {
+  border-color: rgba(255, 193, 7, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+}
+
+.order-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.order-info h5 {
+  color: #ffd54f;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+
+.order-date {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.order-item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.item-placeholder {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.item-placeholder i {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-details h6 {
+  color: #fff;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.item-quantity,
+.item-price {
+  margin: 3px 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.item-total {
+  text-align: right;
+}
+
+.item-total span {
+  color: #ffc107;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.order-total {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.total-label {
+  color: #ffd54f;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.total-amount {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.empty-orders {
+  text-align: center;
+  padding: 80px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.empty-orders i {
+  font-size: 5rem;
+  color: rgba(255, 193, 7, 0.3);
+  margin-bottom: 20px;
+}
+
+.empty-orders h4 {
+  color: #ffd54f;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.empty-orders p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 25px;
+}
+
+.btn-shop {
+  background: linear-gradient(90deg, #ffc107, #ff6f61);
+  color: #000;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s ease;
+}
+
+.btn-shop:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .orders-container {
+    padding: 80px 20px 40px;
+  }
+
+  .orders-header h2 {
+    font-size: 2rem;
+  }
+
+  .order-header-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .order-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .item-total {
+    text-align: center;
+  }
+}
+</style>
+<script>
+  // Poll order status and update DOM without full reload
+  function updateOrdersUI(data) {
+    if (!data || !data.orders) return;
+    // If there are new/removed orders, trigger a lightweight reload to render cards
+    var existingIds = Array.from(document.querySelectorAll('.order-card')).map(function(el){
+      return parseInt(el.getAttribute('data-order-id'), 10);
+    });
+    var payloadIds = data.orders.map(function(o){ return o.id; });
+    var changedCount = payloadIds.length !== existingIds.length;
+    var hasNewOrMissing = payloadIds.some(function(id){ return existingIds.indexOf(id) === -1; }) ||
+                          existingIds.some(function(id){ return payloadIds.indexOf(id) === -1; });
+    if (changedCount || hasNewOrMissing) {
+      // Update the stat quickly for immediate feedback
+      var statEl = document.querySelector('.orders-stats .stat-value');
+      if (statEl) statEl.textContent = String(payloadIds.length);
+      window.location.reload();
+      return;
+    }
+    data.orders.forEach(function(o) {
+      var statusEl = document.getElementById('order-status-' + o.id);
+      var labelEl = document.getElementById('track-label-' + o.id);
+      var barEl = document.getElementById('track-bar-' + o.id);
+      if (statusEl) {
+        statusEl.textContent = (o.status || '').charAt(0).toUpperCase() + (o.status || '').slice(1);
+        statusEl.classList.remove('bg-success','bg-warning','text-dark','bg-danger');
+        if (o.status === 'paid') statusEl.classList.add('bg-success');
+        else if (o.status === 'pending') { statusEl.classList.add('bg-warning','text-dark'); }
+        else statusEl.classList.add('bg-danger');
+      }
+      if (labelEl) { labelEl.textContent = o.tracking_label || 'Placed'; }
+      if (barEl) {
+        var p = parseInt(o.percent || 0, 10);
+        barEl.style.width = p + '%';
+        barEl.setAttribute('aria-valuenow', p);
+      }
+    });
+  }
+
+  function pollOrders() {
+    fetch('{% url "my_orders_status" %}', { headers: { 'X-Requested-With': 'XMLHttpRequest' }})
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(updateOrdersUI)
+      .catch(function(){});
+  }
+
+  // Start polling every 10 seconds
+  setInterval(pollOrders, 10000);
+  // Initial poll shortly after load
+  window.addEventListener('load', function(){ setTimeout(pollOrders, 1500); });
+</script>
+{% endblock %}

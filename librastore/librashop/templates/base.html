@@ -1,0 +1,644 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} LIBRA {% endblock %}</title>
+    
+    <!-- Favicon with cache busting -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}?v=2025110801">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}?v=2025110801">
+    <link rel="apple-touch-icon" href="{% static 'images/favicon.ico' %}?v=2025110801">
+
+    <!-- Bootstrap CSS & Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <!-- Global Premium Dark Theme -->
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}?v=20251113">
+
+    
+
+    <style>
+      .glass-navbar {
+        background: #111 !important; /* solid dark by default */
+        backdrop-filter: none;
+        border-radius: 0;
+        padding: 8px 25px;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+        transition: all 0.3s ease;
+      }
+      .glass-navbar:hover {
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
+      }
+
+      /* ===== Brand ===== */
+      .navbar-brand {
+        color: #ffc107 !important;
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+      .navbar-brand:hover {
+        color: #ff6f61 !important;
+        text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+      }
+
+      /* ===== Nav Links ===== */
+      .nav-link {
+        color: #fff !important;
+        margin: 0 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .nav-link:hover {
+        color: #000 !important;
+        background: linear-gradient(90deg, #ffc107, #ff6f61);
+        border-radius: 8px;
+        padding: 6px 12px;
+      }
+
+      /* ===== Icons ===== */
+      .icon-btn {
+        font-size: 1.3rem;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .icon-btn:hover {
+        color: #000;
+        background: linear-gradient(90deg, #ffc107, #ff6f61);
+        border-radius: 50%;
+        padding: 6px;
+        box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+      }
+
+      /* ===== Mobile View ===== */
+      @media (max-width: 991px) {
+        .glass-navbar {
+          width: 95%;
+          border-radius: 20px;
+          text-align: center;
+        }
+
+        .navbar-toggler {
+          background-color: #ffc107;
+          border: 2px solid #ffc107;
+          border-radius: 10px;
+          padding: 8px 12px;
+        }
+
+        .navbar-toggler:focus {
+          box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.5);
+        }
+
+        .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+          width: 24px;
+          height: 24px;
+        }
+
+        .close-menu {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: #ffc107;
+          border: none;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 1.4rem;
+          color: #000;
+          z-index: 1052;
+          pointer-events: auto;
+          transition: all 0.3s ease;
+        }
+
+        .close-menu:hover {
+          background: #ff6f61;
+          color: #fff;
+          transform: rotate(90deg);
+        }
+
+        .close-menu:active {
+          transform: scale(0.9);
+        }
+
+        .navbar-collapse {
+          background: rgba(20, 20, 20, 0.95);
+          backdrop-filter: blur(12px);
+          border-radius: 20px;
+          padding: 50px 15px 15px 15px;
+          margin-top: 10px;
+          position: relative;
+        }
+
+        .glass-search {
+          width: 100%;
+        }
+
+        .btn-warning {
+          width: 100%;
+        }
+
+        form.d-flex {
+          flex-direction: column;
+        }
+
+        .icon-btn {
+          margin-top: 10px;
+        }
+      }
+
+      .footer-link {
+        color: #ffc107;
+        text-decoration: none;
+        font-weight: 500;
+        margin: 0 10px;
+        transition: 0.3s;
+      }
+
+      .footer-link:hover {
+        color: #000;
+        background: linear-gradient(90deg, #ffc107, #ff6f61);
+        padding: 6px 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+      }
+
+      /* === Auth Buttons (Visible on Dark Navbar) === */
+      .login-btn,
+      .signup-btn {
+        background: linear-gradient(90deg, #ffc107, #ff6f61);
+        color: #000;
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        padding: 8px 18px;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 12px rgba(255, 193, 7, 0.5);
+      }
+
+      .login-btn:hover,
+      .signup-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.8);
+      }
+
+      /* Make Sign Up button slightly different for contrast */
+      .signup-btn {
+        background: transparent;
+        color: #ffc107;
+        border: 1.5px solid #ffc107;
+        box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+      }
+
+      .signup-btn:hover {
+        background: linear-gradient(90deg, #ffc107, #ff6f61);
+        color: #000;
+        border: none;
+      }
+
+      @media (max-width: 991px) {
+        #authSection {
+          margin-top: 10px;
+          text-align: center;
+        }
+        #authSection .btn {
+          width: 90%;
+          margin-bottom: 8px;
+        }
+      }
+
+      /* === Profile Icon === */
+      .profile-dropdown {
+        position: relative;
+      }
+
+      .profile-icon {
+        font-size: 1.6rem;
+        color: #ffc107;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .profile-icon:hover {
+        color: #000;
+        background: linear-gradient(90deg, #ffc107, #ff6f61);
+        border-radius: 50%;
+        padding: 6px;
+        box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+      }
+
+      /* === Dropdown Menu (Glass Effect) === */
+      .profile-menu {
+        position: absolute;
+        top: 120%;
+        right: 0;
+        background: rgba(30, 30, 30, 0.8);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        padding: 10px 0;
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+        min-width: 180px;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: all 0.3s ease;
+        z-index: 1050;
+      }
+
+      .profile-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+      }
+
+      .profile-menu a {
+        display: block;
+        padding: 10px 15px;
+        color: #ffc107;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .profile-menu a:hover {
+        background: linear-gradient(90deg, #ffc107, #ff6f61);
+        color: #000000ff;
+        border-radius: 6px;
+      }
+
+      .badge-count {
+        position: absolute;
+        top: -5px;
+        right: -8px;
+        background: linear-gradient(90deg, #ffc107, #ff6f61);
+        color: #000;
+        font-size: 0.65rem;
+        font-weight: 700;
+        border-radius: 50%;
+        padding: 3px 6px;
+        box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+      }
+
+
+
+
+      /* === Pop Up Messages === */
+
+      .toastify {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.toastify.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toastify.off {
+  opacity: 0;
+  transform: translateY(-15px);
+}
+
+
+
+
+
+
+
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    
+
+    <nav class="navbar navbar-expand-lg glass-navbar sticky-top">
+      <div class="container-fluid">
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold text-uppercase" href="{% url 'home' %}"
+          >LIBRA</a
+        >
+
+        <!-- Mobile Toggle (Top-right) -->
+        <button
+          class="navbar-toggler ms-auto shadow-none border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Items -->
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarContent"
+        >
+          <!-- Close button for mobile -->
+          <button class="close-menu d-lg-none" type="button" id="closeMenuBtn" aria-label="Close menu">
+            <i class="bi bi-x-lg"></i>
+          </button>
+          
+          <!-- Navigation Links - Centered -->
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+            <li class="nav-item">
+              <a class="nav-link px-3" href="{% url 'home' %}">
+                <i class="bi bi-house-door me-2"></i>Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="{% url 'shop' %}">
+                <i class="bi bi-shop me-2"></i>Shop
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="{% url 'offers' %}">
+                <i class="bi bi-gift me-2"></i>Offers
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="{% url 'contact' %}">
+                <i class="bi bi-envelope me-2"></i>Contact
+              </a>
+            </li>
+            {% if user.is_staff %}
+            <li class="nav-item">
+              <a class="nav-link px-3" href="{% url 'admin_dashboard' %}">
+                <i class="bi bi-speedometer2 me-2"></i>Dashboard
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+
+          <!-- Right Side: Icons and Auth -->
+          <div class="d-flex align-items-center gap-3 ms-auto" id="authSection">
+            {% if user.is_authenticated %}
+            <!-- Wishlist + Cart -->
+             <!-- Wishlist + Cart -->
+    {% if not user.vendor %}
+    <a href="{% url 'wishlist' %}" class="position-relative text-decoration-none">
+      <i class="bi bi-heart icon-btn"></i>
+      {% if wishlist_count and wishlist_count > 0 %}
+      <span class="badge-count">{{ wishlist_count }}</span>
+      {% endif %}
+    </a>
+
+    <a href="{% url 'cart_summary' %}" class="position-relative text-decoration-none">
+      <i class="bi bi-cart icon-btn"></i>
+      {% if cart_count and cart_count %}
+      <span class="badge-count">{{ cart_count }}</span>
+      {% endif %}
+    </a>
+    {% endif %}
+
+    <!-- Profile Dropdown -->
+    <div class="profile-dropdown">
+      <i class="bi bi-person-circle profile-icon" id="profileToggle"></i>
+
+      <div class="profile-menu" id="profileMenu">
+        {% if user.vendor %}
+          <!-- Vendor Dashboard Menu -->
+          <a href="{% url 'vendor_dashboard' %}"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
+          <a href="{% url 'vendor_products' %}"><i class="bi bi-box-seam me-2"></i>My Products</a>
+          <a href="{% url 'vendor_orders' %}"><i class="bi bi-receipt me-2"></i>Orders</a>
+          <a href="{% url 'vendor_settings' %}"><i class="bi bi-gear me-2"></i>Settings</a>
+        {% else %}
+          <!-- Normal User Menu -->
+          <a href="{% url 'profile' %}"><i class="bi bi-person me-2"></i>My Profile</a>
+          <a href="{% url 'order_history' %}"><i class="bi bi-clock-history me-2"></i>Order History</a>
+          <a href="{% url 'wishlist' %}"><i class="bi bi-heart me-2"></i>Wishlist</a>
+        {% endif %}
+        {% if user.is_staff %}
+          <div class="dropdown-divider"></div>
+          <a href="{% url 'admin_dashboard' %}"><i class="bi bi-speedometer2 me-2"></i>Admin Dashboard</a>
+          <a href="{% url 'admin_products_list' %}"><i class="bi bi-box-seam me-2"></i>Admin Products</a>
+          <a href="{% url 'admin_customers_list' %}"><i class="bi bi-people me-2"></i>Admin Customers</a>
+          <a href="{% url 'admin_coupons_list' %}"><i class="bi bi-ticket-perforated me-2"></i>Admin Coupons</a>
+          <a href="{% url 'admin_categories_list' %}"><i class="bi bi-folder2-open me-2"></i>Admin Categories</a>
+        {% endif %}
+        <div class="dropdown-divider"></div>
+        <form method="post" action="{% url 'logout' %}" class="m-0 p-0" id="logoutForm">
+          {% csrf_token %}
+          <button type="submit" class="dropdown-item text-warning fw-semibold">
+            <i class="bi bi-box-arrow-right me-2"></i>Logout
+          </button>
+        </form>
+      </div>
+    </div>
+  {% else %}
+    <!-- When not logged in -->
+    <a href="{% url 'login' %}" class="btn btn-warning text-dark fw-semibold rounded-pill px-3">
+      Login
+    </a>
+    {% comment %} <a href="{% url 'vendor_login' %}" class="btn btn-outline-warning fw-semibold rounded-pill px-3">
+      Vendor Login
+    </a> {% endcomment %}
+  {% endif %}
+      </div>
+    </nav>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <div class="d-flex flex-column min-vh-100">
+      <main class="flex-grow-1">
+        {% block content %}{% endblock %}
+      </main>
+
+      <footer class="mt-auto bg-black w-100" style="position:relative; overflow:hidden;">
+    <div style="position:absolute; inset:0; background: radial-gradient(1200px 400px at 10% -10%, rgba(255,193,7,0.08), transparent), radial-gradient(800px 300px at 110% 10%, rgba(255,111,97,0.08), transparent);"></div>
+    <div class="container-fluid py-5 position-relative">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-md-4">
+          <div class="p-4 rounded-4" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(12px);">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="fw-bold" style="color:#ffc107; font-size:1.25rem;">LIBRA</span>
+              <span class="badge text-dark" style="background:linear-gradient(90deg,#ffc107,#ff6f61);">Premium</span>
+            </div>
+            <p class="mb-0 text-light">Curated quality, unmatched value. Discover new arrivals, exclusive offers, and premium picks for every category.</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <h6 class="text-uppercase text-warning mb-3">Explore</h6>
+          <div class="row">
+            <div class="col-6">
+              <ul class="list-unstyled m-0">
+                <li class="mb-2"><a href="{% url 'home' %}" class="text-decoration-none" style="color:#fff;">Home</a></li>
+                <li class="mb-2"><a href="{% url 'shop' %}" class="text-decoration-none" style="color:#fff;">Shop</a></li>
+                <li class="mb-2"><a href="{% url 'offers' %}" class="text-decoration-none" style="color:#fff;">Offers</a></li>
+                <li class="mb-2"><a href="{% url 'about' %}" class="text-decoration-none" style="color:#fff;">About</a></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-unstyled m-0">
+                <li class="mb-2"><a href="{% url 'contact' %}" class="text-decoration-none" style="color:#fff;">Contact</a></li>
+                <li class="mb-2"><a href="{% url 'wishlist' %}" class="text-decoration-none" style="color:#fff;">Wishlist</a></li>
+                {% if user.is_authenticated %}
+                <li class="mb-2"><a href="{% url 'order_history' %}" class="text-decoration-none" style="color:#fff;">Orders</a></li>
+                {% else %}
+                <li class="mb-2"><a href="{% url 'login' %}" class="text-decoration-none" style="color:#fff;">Login</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <h6 class="text-uppercase text-warning mb-3">Connect</h6>
+          <div class="d-flex gap-2 mb-3">
+            <a href="#" class="btn btn-sm border-0" style="background:rgba(255,255,255,0.08); color:#fff;"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn btn-sm border-0" style="background:rgba(255,255,255,0.08); color:#fff;"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="btn btn-sm border-0" style="background:rgba(255,255,255,0.08); color:#fff;"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="btn btn-sm border-0" style="background:rgba(255,255,255,0.08); color:#fff;"><i class="bi bi-youtube"></i></a>
+          </div>
+          <div class="small text-light">&copy; {% now "Y" %} Libra. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+    </div>
+    
+
+ 
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    {% for message in messages %}
+    
+      {% if 'success' in message.tags %}
+         var bgColor =  'green';
+      {% elif 'error' in message.tags %}
+         var bgColor = 'red';
+      {% else %}
+         var bgColor = 'blue';
+
+    {% endif %}
+
+    const toast = Toastify({
+      text: "{{ message|escapejs }}",
+      gravity: "top",
+      position: "center",
+      duration: 3500,
+      backgroundColor: bgColor,
+      close: true,
+      className: "animated-toast"
+    });
+
+
+    toast.showToast();
+
+    
+    
+    const toastInstance = document.querySelector('.toastify');
+    toastInstance.classList.add('on');
+    setTimeout(() => {
+      toastInstance.classList.remove('on');
+      toastInstance.classList.add('off');
+    }, 3000)
+
+    {% endfor %}
+
+  })
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  </body>
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const profileToggle = document.getElementById("profileToggle");
+    const profileMenu = document.getElementById("profileMenu");
+    const profileDropdown = document.querySelector(".profile-dropdown");
+
+    if (profileToggle && profileMenu) {
+      profileToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        profileMenu.classList.toggle("active");
+      });
+
+      // Close when clicking outside
+      document.addEventListener("click", (e) => {
+        if (profileDropdown && !profileDropdown.contains(e.target)) {
+          profileMenu.classList.remove("active");
+        }
+      });
+    }
+
+    // Mobile menu close functionality
+    const navbarCollapse = document.getElementById("navbarContent");
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const closeMenuBtn = document.getElementById("closeMenuBtn");
+    const navLinks = document.querySelectorAll(".nav-link");
+    
+    // Function to close menu
+    function closeMenu() {
+      if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+        navbarCollapse.classList.remove('show');
+        if (navbarToggler) {
+          navbarToggler.setAttribute('aria-expanded', 'false');
+          navbarToggler.classList.add('collapsed');
+        }
+      }
+    }
+    
+    // Close menu when clicking close button
+    if (closeMenuBtn) {
+      closeMenuBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        closeMenu();
+      });
+    }
+    
+    // Close menu when clicking nav links on mobile
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth < 992) {
+          setTimeout(closeMenu, 100);
+        }
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (window.innerWidth < 992 && navbarCollapse && navbarCollapse.classList.contains('show')) {
+        if (!navbarCollapse.contains(e.target) && !navbarToggler.contains(e.target)) {
+          closeMenu();
+        }
+      }
+    });
+  });
+</script>
+
+
+
+
+</html>

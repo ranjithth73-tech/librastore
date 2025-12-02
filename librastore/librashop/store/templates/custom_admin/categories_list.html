@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Categories | Admin{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="admin-hero d-flex justify-content-between align-items-center">
+    <div>
+      <h3 class="mb-1"><i class="bi bi-folder2-open me-2"></i>Categories</h3>
+      <div class="subtitle">Organize your catalog with clean structure</div>
+    </div>
+    <div class="d-flex gap-2">
+      <span class="badge badge-accent rounded-pill px-3 py-2">Total: {{ total_count }}</span>
+      <a href="{% url 'admin_category_add' %}" class="btn btn-warning text-dark fw-semibold">
+        <i class="bi bi-plus-circle me-1"></i>Add Category
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="admin-wrap container">
+  {% if categories %}
+  <div class="card card-glass">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 80px;">#</th>
+              <th scope="col">Name</th>
+              <th scope="col" class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for cat in categories %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td class="fw-semibold">{{ cat.name }}</td>
+              <td class="text-end">
+                <a href="{% url 'admin_category_edit' cat.id %}" class="btn btn-sm btn-outline-light me-2">
+                  <i class="bi bi-pencil"></i>
+                </a>
+                <a href="{% url 'admin_category_delete' cat.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this category?');">
+                  <i class="bi bi-trash"></i>
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="card card-glass p-4 text-center">
+    <div class="text-muted-2 mb-3">No categories found.</div>
+    <a href="{% url 'admin_category_add' %}" class="btn btn-warning"><i class="bi bi-plus-lg me-1"></i>Create your first category</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

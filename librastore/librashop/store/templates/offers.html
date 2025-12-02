@@ -1,0 +1,407 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Offers & Coupons | LIBRA
+{% endblock %}
+
+{% block content %}
+<style>
+  body { background: #0e0e0e; color: #fff; font-family: "Poppins", sans-serif; }
+  
+  .offers-hero {
+    background: linear-gradient(135deg, #ffc107, #ff6f61);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .offers-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+  }
+  
+  .offers-hero h1 {
+    color: #000;
+    font-weight: 800;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .coupon-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid rgba(255,193,7,0.3);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .coupon-card:hover {
+    border-color: #ffc107;
+    box-shadow: 0 4px 15px rgba(255,193,7,0.2);
+  }
+  
+  .coupon-code {
+    background: rgba(255,193,7,0.1);
+    color: #ffc107;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: inline-block;
+    border: 1px solid rgba(255,193,7,0.3);
+  }
+  
+  .discount-badge {
+    background: transparent;
+    color: #ffc107;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: inline-block;
+    border: 1px solid rgba(255,193,7,0.3);
+  }
+  
+  .copy-btn {
+    background: transparent;
+    border: 1px solid #ffc107;
+    color: #ffc107;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+  
+  .copy-btn:hover {
+    background: #ffc107;
+    color: #000;
+  }
+  
+  .validity-badge {
+    background: transparent;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: rgba(255,193,7,0.7);
+    font-weight: 500;
+    border: 1px solid rgba(255,193,7,0.2);
+  }
+  
+  .section-title {
+    color: #ffc107;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #ffc107, transparent);
+  }
+  
+  .no-offers {
+    background: rgba(255,255,255,0.05);
+    padding: 60px;
+    border-radius: 20px;
+    text-align: center;
+  }
+  
+  .stats-card {
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    border: 2px solid rgba(255,193,7,0.5);
+  }
+  
+  .stats-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffc107;
+  }
+  
+  .stats-card .text-warning {
+    color: #ffc107 !important;
+    font-size: 1.1rem;
+  }
+</style>
+
+<!-- Hero Section -->
+<section class="offers-hero">
+  <div class="container text-center position-relative">
+    <h1 class="animate__animated animate__fadeInDown">
+      <i class="bi bi-gift me-3"></i>Special Offers & Coupons
+    </h1>
+    <p class="lead text-dark fw-semibold animate__animated animate__fadeInUp">
+      Save big with our exclusive discount codes!
+    </p>
+    
+    <!-- Stats -->
+    <div class="row mt-5 g-4">
+      <div class="col-md-4">
+        <div class="stats-card">
+          <div class="stats-number">{{ total_offers }}</div>
+          <div class="text-warning fw-semibold">Active Offers</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stats-card">
+          <div class="stats-number">{{ percentage_coupons.count }}</div>
+          <div class="text-warning fw-semibold">Percentage Off</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stats-card">
+          <div class="stats-number">{{ fixed_coupons.count }}</div>
+          <div class="text-warning fw-semibold">Fixed Discounts</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Offers Section -->
+<section class="py-5 bg-black">
+  <div class="container">
+    
+    {% if active_coupons %}
+    
+    <!-- Percentage Discounts -->
+    {% if percentage_coupons %}
+    <div class="mb-5">
+      <h2 class="section-title">
+        <i class="bi bi-percent me-2"></i>Percentage Discounts
+      </h2>
+      <div class="row g-4 mt-3">
+        {% for coupon in percentage_coupons %}
+        <div class="col-md-6 col-lg-4">
+          <div class="coupon-card h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="discount-badge">
+                {{ coupon.value }}% OFF
+              </div>
+              <span class="validity-badge">
+                <i class="bi bi-clock me-1"></i>{{ coupon.valid_to|date:"M d" }}
+              </span>
+            </div>
+            
+            <div class="my-4 text-center">
+              <div class="coupon-code" id="code-{{ coupon.id }}">
+                {{ coupon.code }}
+              </div>
+            </div>
+            
+            <div class="text-center">
+              <button class="copy-btn" onclick="copyCoupon('{{ coupon.code }}', {{ coupon.id }})">
+                <i class="bi bi-clipboard me-1"></i>Copy Code
+              </button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    
+    <!-- Fixed Amount Discounts -->
+    {% if fixed_coupons %}
+    <div class="mb-5">
+      <h2 class="section-title">
+        <i class="bi bi-currency-dollar me-2"></i>Fixed Amount Off
+      </h2>
+      <div class="row g-4 mt-3">
+        {% for coupon in fixed_coupons %}
+        <div class="col-md-6 col-lg-4">
+          <div class="coupon-card h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="discount-badge">
+                ₹{{ coupon.value }} OFF
+              </div>
+              <span class="validity-badge">
+                <i class="bi bi-clock me-1"></i>{{ coupon.valid_to|date:"M d" }}
+              </span>
+            </div>
+            
+            <div class="my-4 text-center">
+              <div class="coupon-code" id="code-{{ coupon.id }}">
+                {{ coupon.code }}
+              </div>
+            </div>
+            
+            <div class="text-center">
+              <button class="copy-btn" onclick="copyCoupon('{{ coupon.code }}', {{ coupon.id }})">
+                <i class="bi bi-clipboard me-1"></i>Copy Code
+              </button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    
+    <!-- How to Use Section -->
+    <div class="mt-5 pt-5">
+      <h2 class="section-title">
+        <i class="bi bi-question-circle me-2"></i>How to Use Coupons
+      </h2>
+      <div class="row g-4 mt-3">
+        <div class="col-md-3">
+          <div class="text-center p-4">
+            <div class="mb-3">
+              <i class="bi bi-1-circle-fill" style="font-size: 3rem; color: #ffc107;"></i>
+            </div>
+            <h5 class="text-warning">Copy Code</h5>
+            <p class="text-light">Click the "Copy Code" button on any coupon</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="text-center p-4">
+            <div class="mb-3">
+              <i class="bi bi-2-circle-fill" style="font-size: 3rem; color: #ffc107;"></i>
+            </div>
+            <h5 class="text-warning">Shop Products</h5>
+            <p class="text-light">Add items to your cart</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="text-center p-4">
+            <div class="mb-3">
+              <i class="bi bi-3-circle-fill" style="font-size: 3rem; color: #ffc107;"></i>
+            </div>
+            <h5 class="text-warning">Apply at Checkout</h5>
+            <p class="text-light">Paste the code at checkout</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="text-center p-4">
+            <div class="mb-3">
+              <i class="bi bi-4-circle-fill" style="font-size: 3rem; color: #ffc107;"></i>
+            </div>
+            <h5 class="text-warning">Save Money!</h5>
+            <p class="text-light">Enjoy your discount</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {% else %}
+    
+    <!-- No Offers Available -->
+    <div class="no-offers">
+      <i class="bi bi-gift" style="font-size: 5rem; color: #ffc107; opacity: 0.5;"></i>
+      <h3 class="mt-4 text-warning">No Active Offers Right Now</h3>
+      <p class="text-light">Check back soon for exciting deals and discounts!</p>
+      <a href="{% url 'shop' %}" class="btn btn-warning text-dark fw-semibold mt-3">
+        <i class="bi bi-shop me-2"></i>Continue Shopping
+      </a>
+    </div>
+    
+    {% endif %}
+    
+    <!-- Call to Action -->
+    <div class="text-center mt-5 pt-5">
+      <h3 class="text-warning mb-3">Ready to Save?</h3>
+      <p class="text-light mb-4">Start shopping and apply these amazing coupons at checkout!</p>
+      <a href="{% url 'shop' %}" class="btn btn-warning btn-lg text-dark fw-semibold px-5">
+        <i class="bi bi-shop me-2"></i>Shop Now
+      </a>
+    </div>
+    
+  </div>
+</section>
+
+<script>
+  function copyCoupon(code, id) {
+    // Get the button that was clicked
+    const btn = event.target.closest('button');
+    
+    // Copy to clipboard
+    navigator.clipboard.writeText(code).then(function() {
+      // Show success feedback
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<i class="bi bi-check-circle me-1"></i>Copied!';
+      btn.style.background = '#ffc107';
+      btn.style.color = '#000';
+      btn.style.border = '1px solid #ffc107';
+      
+      // Reset after 2 seconds
+      setTimeout(function() {
+        btn.innerHTML = originalHTML;
+        btn.style.background = 'transparent';
+        btn.style.color = '#ffc107';
+        btn.style.border = '1px solid #ffc107';
+      }, 2000);
+      
+      // Show toast message
+      showToast('Coupon code copied to clipboard!');
+    }).catch(function(err) {
+      console.error('Could not copy text: ', err);
+      
+      // Fallback: Try to select and copy
+      try {
+        const codeElement = document.getElementById('code-' + id);
+        const range = document.createRange();
+        range.selectNode(codeElement);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+        
+        // Show success
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<i class="bi bi-check-circle me-1"></i>Copied!';
+        btn.style.background = '#ffc107';
+        btn.style.color = '#000';
+        
+        setTimeout(function() {
+          btn.innerHTML = originalHTML;
+          btn.style.background = 'transparent';
+          btn.style.color = '#ffc107';
+        }, 2000);
+        
+        showToast('Coupon code copied!');
+      } catch(e) {
+        showToast('Failed to copy. Please copy manually.', 'error');
+      }
+    });
+  }
+  
+  function showToast(message, type = 'success') {
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = `alert alert-${type === 'success' ? 'success' : 'danger'} position-fixed top-0 start-50 translate-middle-x mt-3`;
+    toast.style.zIndex = '9999';
+    toast.innerHTML = `
+      <i class="bi bi-${type === 'success' ? 'check-circle' : 'x-circle'} me-2"></i>
+      ${message}
+    `;
+    document.body.appendChild(toast);
+    
+    // Remove after 3 seconds
+    setTimeout(function() {
+      toast.remove();
+    }, 3000);
+  }
+</script>
+
+{% endblock %}

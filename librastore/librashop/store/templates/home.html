@@ -1,0 +1,252 @@
+ {% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+HOME | LIBRA
+{% endblock %}
+
+{% block content %}
+
+<style>
+  /* Home-only: when not stuck, overlay navbar on hero so banner touches the top */
+  .glass-navbar:not(.stuck) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1055;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+</style>
+
+<!-- Hero Carousel Section -->
+<section class="position-relative" style="height: 70vh; overflow:hidden;">
+  <div id="heroCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false" data-bs-wrap="true">
+    {% if hero_images %}
+      <div class="carousel-indicators">
+        {% for _ in hero_images %}
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" {% if forloop.first %}aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}"></button>
+        {% endfor %}
+      </div>
+      <div class="carousel-inner h-100">
+        {% for img in hero_images %}
+          <div class="carousel-item h-100 {% if forloop.first %}active{% endif %}">
+            <a href="{% url 'shop' %}" class="d-block w-100 h-100">
+              <img src="{{ img }}" alt="Hero Banner {{ forloop.counter }}" class="w-100 h-100" style="object-fit:cover; filter: brightness(0.85);" onerror="this.onerror=null; this.src='{% static 'images/product_placeholder.jpg' %}';">
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <!-- Dark overlay to ensure caption readability -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35)); pointer-events:none; z-index:1;"></div>
+  <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center text-white" style="z-index:2;">
+    <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">Discover Premium Products</h1>
+    <p class="lead animate__animated animate__fadeInUp animate__delay-1s" style="text-shadow:0 2px 8px rgba(0,0,0,0.6);">Curated quality, unmatched value</p>
+    <a href="{% url 'shop' %}" class="btn btn-lg btn-warning text-dark fw-semibold mt-2" style="box-shadow:0 6px 20px rgba(0,0,0,0.4);">Shop Now</a>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const nav = document.querySelector('.glass-navbar');
+    if (!nav) return;
+    function onScroll(){
+      if (window.scrollY > 10){
+        nav.classList.add('stuck');
+      } else {
+        nav.classList.remove('stuck');
+      }
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+  });
+  </script>
+
+<!-- Offer Banners Carousel -->
+<section class="bg-black py-4">
+  <div id="offerCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="position-relative" style="border-radius:16px; overflow:hidden; height:260px;">
+            <img src="{% static 'images/banners/banner1.jpg' %}" alt="Festival Banner - Christmas Lights" class="w-100 h-100" style="object-fit:cover; filter: brightness(0.95);" onerror="this.onerror=null; this.src='{% static 'images/product_placeholder.jpg' %}';">
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(circle at 20% 20%, rgba(0,0,0,0.08), rgba(0,0,0,0.35));"></div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="position-relative" style="border-radius:16px; overflow:hidden; height:260px;">
+            <img src="{% static 'images/banners/banner2.jpg' %}" alt="New Arrivals Banner" class="w-100 h-100" style="object-fit:cover; filter: brightness(0.95);" onerror="this.onerror=null; this.src='{% static 'images/product_placeholder.jpg' %}';">
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(circle at 20% 20%, rgba(0,0,0,0.08), rgba(0,0,0,0.35));"></div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="position-relative" style="border-radius:16px; overflow:hidden; height:260px;">
+            <img src="{% static 'images/banners/banner3.jpg' %}" alt="Member Specials Banner" class="w-100 h-100" style="object-fit:cover; filter: brightness(0.95);" onerror="this.onerror=null; this.src='{% static 'images/product_placeholder.jpg' %}';">
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(circle at 20% 20%, rgba(0,0,0,0.08), rgba(0,0,0,0.35));"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var el = document.getElementById('offerCarousel');
+    if (el && window.bootstrap) {
+      var c = new bootstrap.Carousel(el, {interval: 3000, ride: 'carousel'});
+    }
+  });
+  </script>
+
+<!-- Shop by Category: two cards per row -->
+<section class="bg-dark py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="text-warning mb-0 text-uppercase">Shop by Category</h2>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      {% for category in all_categories %}
+      <div class="col">
+        <a href="{% url 'category_shop' category.slug %}" class="text-decoration-none">
+          <div class="card border-0 shadow-sm h-100" style="border-radius:16px; overflow:hidden; background: #111;">
+            <div class="position-relative" style="height: 260px; overflow:hidden;">
+              {% if category.hero_video %}
+                <video autoplay muted loop playsinline class="w-100 h-100" style="object-fit:cover;">
+                  <source src="{{ category.hero_video.url }}" />
+                </video>
+              {% else %}
+                <div id="catCarousel-{{ category.id }}" class="carousel slide category-carousel h-100" data-bs-ride="carousel" data-bs-interval="2500">
+                  <div class="carousel-inner h-100">
+                    {% with items=category.products.all|slice:":5" %}
+                      {% if items %}
+                        {% for prod in items %}
+                          <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
+                            {% if prod.image %}
+                              <img src="{{ prod.image.url }}" alt="{{ category.name }}" class="w-100 h-100" style="object-fit:cover; filter:brightness(0.7);">
+                            {% else %}
+                              <img src="{% static 'images/product_placeholder.jpg' %}" alt="{{ category.name }}" class="w-100 h-100" style="object-fit:cover; filter:brightness(0.7);">
+                            {% endif %}
+                          </div>
+                        {% endfor %}
+                      {% else %}
+                        <div class="carousel-item active h-100">
+                          <img src="{% static 'images/product_placeholder.jpg' %}" alt="{{ category.name }}" class="w-100 h-100" style="object-fit:cover; filter:brightness(0.7);">
+                        </div>
+                      {% endif %}
+                    {% endwith %}
+                  </div>
+                </div>
+              {% endif %}
+              <div class="position-absolute top-0 start-0 w-100 h-100" style="background:linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);"></div>
+              <div class="position-absolute bottom-0 start-0 p-4 w-100">
+                <h3 class="text-white fw-bold mb-1">{{ category.name }}</h3>
+                <p class="text-warning mb-2">Explore {{ category.name }} items</p>
+                <span class="btn btn-warning text-dark fw-semibold btn-sm">Explore</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <style>
+    @media (min-width: 768px){
+      /* ensure exactly 2 cards per row on md+ */
+      .row.row-cols-md-2 > .col{ flex:0 0 auto; width:50%; }
+    }
+    .category-carousel .carousel-item img{ width:100%; height:100%; object-fit:cover; }
+  </style>
+</section>
+
+ 
+<!-- Promotions / Banners -->
+<section class="promotions py-5 bg-light">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="promo-card p-4 text-center text-white" style="background: linear-gradient(135deg,#ffc107,#ff6f61); border-radius:16px; transition: transform 0.3s;">
+                    <h3>Exclusive Deals</h3>
+                    <p>Grab your favorite products at amazing discounts!</p>
+                    <a href="{% url 'shop' %}" class="btn btn-dark mt-2">Shop Deals</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="promo-card p-4 text-center text-white" style="background: linear-gradient(135deg,#ff6f61,#ffc107); border-radius:16px; transition: transform 0.3s;">
+                    <h3>New Arrivals</h3>
+                    <p>Check out the latest premium products.</p>
+                    <a href="{% url 'shop' %}" class="btn btn-dark mt-2">Explore Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Animation and Hover Effects -->
+<style>
+    /* Wishlist button styles */
+    .wishlist-form {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+    }
+    
+    .wishlist-btn {
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .wishlist-btn i {
+        color: #ff6f61;
+        font-size: 1.1rem;
+    }
+    
+    .wishlist-btn:hover {
+        background: #ffc107;
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(255,193,7,0.4);
+    }
+
+    /* Card hover effect */
+    .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    /* Promo hover effect */
+    .promo-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    /* Hero button hover */
+    .hero-section .btn:hover {
+        background: #ffc107;
+        color: #000;
+    }
+
+    /* Animations */
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+</style>
+
+
+{% endblock %}

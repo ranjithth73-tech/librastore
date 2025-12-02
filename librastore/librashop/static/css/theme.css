@@ -1,0 +1,108 @@
+/* Premium Dark Theme - LIBRA */
+:root{
+  --bg-1:#0e0e10;
+  --bg-2:#141417;
+  --card-bg:rgba(30,30,30,0.55);
+  --glass-border:rgba(255,255,255,0.08);
+  --glass-border-strong:rgba(255,255,255,0.14);
+  --text-1:#ffffff;
+  --text-2:#cfcfd6;
+  --accent-1:#ffc107; /* gold */
+  --accent-2:#ff6f61; /* coral */
+  --success:#22c55e;
+  --danger:#ef4444;
+  --muted:rgba(255,255,255,0.6);
+  --shadow-1:0 12px 30px rgba(0,0,0,0.35);
+  --shadow-2:0 6px 20px rgba(0,0,0,0.25);
+  --radius-lg:16px;
+  --radius-md:12px;
+}
+
+html, body{ background: var(--bg-1); color: var(--text-1); }
+
+/* Hero header */
+.admin-hero, .page-hero{
+  background: linear-gradient(135deg, rgba(255,193,7,0.25), rgba(255,111,97,0.25));
+  border-radius: 18px;
+  padding: 22px 18px;
+  margin-top: 90px;
+  margin-bottom: 16px;
+  color: var(--text-1);
+  box-shadow: var(--shadow-2);
+}
+.page-hero h1, .admin-hero h3{ font-weight: 800; letter-spacing: .3px; }
+.page-hero .subtitle, .admin-hero .subtitle{ opacity:.9; color: var(--text-2); }
+
+/* Glass cards */
+.card-glass{
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-1);
+}
+.card-glass .card-header{ border-bottom:1px solid var(--glass-border-strong); padding: 18px; }
+
+/* Buttons */
+.btn-warning{ color:#000 !important; font-weight:700; border:none; box-shadow: 0 6px 16px rgba(255,193,7,0.35); }
+.btn-outline-light{ border-color: rgba(255,255,255,0.35) !important; color:#fff !important; }
+.btn-danger, .btn-remove{ background-color: var(--danger) !important; border-color: var(--danger) !important; color:#fff !important; }
+.btn-success{ background-color: var(--success) !important; border-color: var(--success) !important; }
+
+/* Forms */
+.form-control, .form-select{ background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); color:#fff; }
+.form-control::placeholder{ color: var(--muted); }
+/* Make select dropdown options readable on dark theme */
+.form-select:focus{ background: rgba(255,255,255,0.12); color:#fff; border-color: var(--accent-1); box-shadow: 0 0 0 .25rem rgba(255,193,7,0.25); }
+.form-select option{ background-color: #1b1b1e; color:#fff; }
+.form-select optgroup{ background-color: #1b1b1e; color:#fff; }
+
+/* Tables */
+.table{ 
+  background-color: transparent !important; 
+  color: var(--text-1);
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text-1);
+  --bs-table-striped-bg: rgba(255,255,255,0.02);
+  --bs-table-hover-bg: rgba(255,255,255,0.05);
+  --bs-table-border-color: var(--glass-border);
+}
+.table > :not(caption) > * > *{
+  background-color: transparent !important;
+  color: var(--text-1) !important;
+}
+.table thead th{ color: var(--accent-1); font-weight:800; text-transform: uppercase; font-size:.85rem; letter-spacing:.4px; border-color: var(--glass-border-strong); background: rgba(255,255,255,0.06); }
+.table tbody td{ color: var(--text-1); border-color: var(--glass-border); vertical-align: middle; }
+.table-hover tbody tr:hover{ background: rgba(255,255,255,0.05) !important; }
+.table-striped tbody tr:nth-of-type(odd){ background-color: rgba(255,255,255,0.02) !important; }
+.table tr{ background-color: transparent !important; }
+
+/* Badges */
+.badge-count{ background: var(--accent-1); color:#000; font-weight:700; }
+.badge-accent{ background: linear-gradient(90deg,var(--accent-1),var(--accent-2)); color:#000; }
+
+/* Chips and boxes */
+.info-chip{ background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 10px 12px; }
+.info-chip strong{ color: var(--accent-1); font-weight: 800; }
+.info-chip .value{ color: var(--text-1); font-weight: 800; letter-spacing: .2px; }
+.coupon-box{ background: rgba(255,193,7,0.08); border-radius: 10px; border: 1px dashed var(--accent-1); }
+
+/* Utility */
+.text-muted-2{ color: var(--text-2) !important; }
+.shadow-neo{ box-shadow: var(--shadow-1); }
+.rounded-lg{ border-radius: var(--radius-lg); }
+
+/* Navbar adjustments if needed */
+.glass-navbar{ background:#111 !important; box-shadow: 0 2px 12px rgba(0,0,0,0.35); }
+.navbar-brand{ color: var(--accent-1) !important; }
+.nav-link:hover{ color:#000 !important; background: linear-gradient(90deg, var(--accent-1), var(--accent-2)); border-radius:8px; }
+
+/* Pagination */
+.pagination .page-link{ background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color:#fff; }
+.pagination .page-item.active .page-link{ background: var(--accent-1); color:#000; border-color: var(--accent-1); }
+.pagination .page-link:hover{ background: rgba(255,255,255,0.15); color:#fff; }
+
+/* Print helpers */
+@media print{
+  .no-print{ display:none !important; }
+}

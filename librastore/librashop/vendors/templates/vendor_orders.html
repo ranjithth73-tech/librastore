@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block title %}
+Vendor Orders | LIBRA
+{% endblock %}
+
+{% block content %}
+<div class="vendor-orders-container">
+  <div class="orders-header">
+    <h2><i class="bi bi-bag-check"></i> All Orders</h2>
+    <p class="text-muted">Manage and view all your store orders</p>
+    <div class="header-actions">
+      <a href="{% url 'vendor_dashboard' %}" class="btn btn-outline-light rounded-pill px-4">
+        <i class="bi bi-arrow-left me-2"></i>Back to Dashboard
+      </a>
+    </div>
+  </div>
+
+  <!-- Summary Card -->
+  <div class="summary-card mb-4">
+    <div class="row">
+      <div class="col-md-6">
+        <h5 class="text-warning mb-0">Total Orders</h5>
+        <h3 class="text-white">{{ total_orders }}</h3>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="text-muted mb-0">Last updated: {{ request.user.date_joined|date:"M d, Y" }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orders List -->
+  {% if orders_with_items %}
+    {% for order_data in orders_with_items %}
+      <div class="order-card mb-4">
+        <div class="order-card-header">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h5 class="mb-0">
+                <i class="bi bi-receipt-cutoff me-2 text-warning"></i>
+                Order #{{ order_data.order.id }}
+              </h5>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <span class="badge {% if order_data.order.status == 'paid' %}bg-success{% elif order_data.order.status == 'pending' %}bg-warning{% else %}bg-danger{% endif %} px-3 py-2">
+                {{ order_data.order.status|capfirst }}
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="order-card-body">
+          <!-- Customer Info -->
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <p class="mb-1"><strong>Customer:</strong> 
+                {% if order_data.order.custamer %}
+                  {% if order_data.order.custamer.user %}
+                    {{ order_data.order.custamer.user.username }}
+                  {% elif order_data.order.custamer.name %}
+                    {{ order_data.order.custamer.name }}
+                  {% else %}
+                    N/A
+                  {% endif %}
+                {% else %}
+                  N/A
+                {% endif %}
+              </p>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <p class="mb-1"><strong>Date:</strong> {{ order_data.order.date_odered|date:"M d, Y h:i A" }}</p>
+            </div>
+          </div>
+
+          <!-- Order Items -->
+          <div class="table-responsive">
+            <table class="table table-dark table-hover mb-0">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th class="text-center">Quantity</th>
+                  <th class="text-end">Unit Price</th>
+                  <th class="text-end">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in order_data.items %}
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        {% if item.product.image %}
+                          <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="product-img me-3">
+                        {% endif %}
+                        <div>
+                          <strong>{{ item.product.name }}</strong>
+                          {% if item.product.category %}
+                            <br><small class="text-muted">{{ item.product.category.name }}</small>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-center">{{ item.quantity }}</td>
+                    <td class="text-end">₹{{ item.product.price|floatformat:2 }}</td>
+                    <td class="text-end">₹{% widthratio item.quantity 1 item.product.price as item_total %}{{ item_total|floatformat:2 }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+              <tfoot>
+                <tr class="border-top">
+                  <td colspan="3" class="text-end"><strong>Order Total:</strong></td>
+                  <td class="text-end">
+                    <strong class="text-warning">₹{{ order_data.total|floatformat:2 }}</strong>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          {% if order_data.order.transaction_id %}
+            <div class="mt-3">
+              <small class="text-muted">
+                <strong>Transaction ID:</strong> {{ order_data.order.transaction_id }}
+              </small>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="empty-state text-center py-5">
+      <i class="bi bi-inbox display-1 text-muted"></i>
+      <h4 class="mt-3 text-white">No orders found</h4>
+      <p class="text-muted">You haven't received any orders yet.</p>
+      <a href="{% url 'vendor_dashboard' %}" class="btn btn-warning rounded-pill px-4 mt-3">
+        <i class="bi bi-arrow-left me-2"></i>Back to Dashboard
+      </a>
+    </div>
+  {% endif %}
+</div>
+
+<style>
+.vendor-orders-container {
+  min-height: 100vh;
+  padding: 100px 40px 60px;
+  background: radial-gradient(circle at top left, #ffc107, #ff6f61, #1a1a1a);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.orders-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.orders-header h2 {
+  color: #ffc107;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.orders-header .text-muted {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+.header-actions {
+  margin-top: 20px;
+}
+
+.summary-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.order-card {
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(255, 193, 7, 0.3);
+}
+
+.order-card-header {
+  background: rgba(255, 193, 7, 0.1);
+  padding: 20px 25px;
+  border-bottom: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.order-card-header h5 {
+  color: #ffc107;
+  font-weight: 600;
+}
+
+.order-card-body {
+  padding: 25px;
+}
+
+.product-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 193, 7, 0.3);
+}
+
+.table-dark {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-dark thead {
+  background: rgba(255, 193, 7, 0.1);
+}
+
+.table-dark thead th {
+  border-bottom: 2px solid rgba(255, 193, 7, 0.3);
+  color: #ffc107;
+  font-weight: 600;
+  padding: 15px;
+}
+
+.table-dark tbody td {
+  padding: 15px;
+  vertical-align: middle;
+}
+
+.table-dark tfoot td {
+  padding: 15px;
+  font-size: 1.1rem;
+}
+
+.empty-state {
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  padding: 60px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.btn-outline-light {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.badge {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .vendor-orders-container {
+    padding: 80px 20px 40px;
+  }
+  
+  .order-card-header h5 {
+    font-size: 1rem;
+  }
+  
+  .product-img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .table-dark {
+    font-size: 0.9rem;
+  }
+  
+  .table-dark thead th,
+  .table-dark tbody td {
+    padding: 10px;
+  }
+}
+</style>
+
+{% endblock %}
+

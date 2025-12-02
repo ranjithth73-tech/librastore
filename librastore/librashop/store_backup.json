@@ -1,0 +1,3093 @@
+[
+{
+  "model": "store.category",
+  "pk": 1,
+  "fields": {
+    "name": "Music Systems",
+    "slug": "music-systems",
+    "hero_video": "videos/categories/Headphone_3D_Product_Advertisement_by_Aakash.mp4"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 3,
+  "fields": {
+    "name": "Electronics",
+    "slug": "electronics",
+    "hero_video": "videos/categories/MacBook_Pro_M4_Reveal_4K.mp4"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 5,
+  "fields": {
+    "name": "Watches",
+    "slug": "watches",
+    "hero_video": "videos/categories/Rolex_Day-Date__Decorative_stone_dials.mp4"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 6,
+  "fields": {
+    "name": "Mens",
+    "slug": "mens",
+    "hero_video": "videos/categories/RALPH_LAUREN___Purple_Label_Spring_2022.mp4"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 7,
+  "fields": {
+    "name": "Foot Wear",
+    "slug": "footwear",
+    "hero_video": "videos/categories/LIBRA_Footwear_Cinematic_Advertisement_Video.mp4"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 8,
+  "fields": {
+    "name": "Perfume",
+    "slug": "perfume",
+    "hero_video": "videos/categories/videoplayback.webm"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 16,
+  "fields": {
+    "category": 6,
+    "vendor": 12,
+    "name": "Casual Pants",
+    "slug": "casual-pants",
+    "image": "products/25/11/11/M-PANTS-17696-21485-NATURAL_8.webp",
+    "description": "Casual Pants For mens",
+    "price": "3455.90",
+    "available": true,
+    "created": "2025-11-11T06:11:56.004Z",
+    "updated": "2025-11-11T06:11:56.004Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 17,
+  "fields": {
+    "category": 6,
+    "vendor": 12,
+    "name": "T-shirt White",
+    "slug": "t-shirt-white",
+    "image": "products/25/11/11/1759753164196_4yboEbq.jpg",
+    "description": "Premium Quality Cloth",
+    "price": "3456.90",
+    "available": true,
+    "created": "2025-11-11T06:15:00.522Z",
+    "updated": "2025-11-11T06:15:00.522Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 18,
+  "fields": {
+    "category": 6,
+    "vendor": 12,
+    "name": "Jacket For Mens",
+    "slug": "jacket-for-mens",
+    "image": "products/25/11/11/LOOSE-M-PANTS-F25.webp",
+    "description": "Premium Style Jackets For men",
+    "price": "3455.53",
+    "available": true,
+    "created": "2025-11-11T06:18:02.768Z",
+    "updated": "2025-11-11T06:18:02.768Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 19,
+  "fields": {
+    "category": 6,
+    "vendor": 12,
+    "name": "Formal Pant For Men",
+    "slug": "formal-pant-for-men",
+    "image": "products/25/11/11/615RRVDTBTL_VD7lOx9.webp",
+    "description": "Rich look and confident",
+    "price": "3455.43",
+    "available": true,
+    "created": "2025-11-11T06:20:37.785Z",
+    "updated": "2025-11-11T06:20:37.785Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 20,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "MacBook Pro",
+    "slug": "macbook-pro",
+    "image": "products/25/11/11/16_MacBook_Pro.jpg",
+    "description": "New MacBook Pro The premium laptop ever",
+    "price": "198869.00",
+    "available": true,
+    "created": "2025-11-11T12:18:33.739Z",
+    "updated": "2025-11-11T12:18:33.739Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 21,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "MacBook Pro 14",
+    "slug": "macbook-pro-14",
+    "image": "products/25/11/11/MacBook_Pro_14_and_16.jpg",
+    "description": "Imagine Feel Like a Rich Person with this one in your hand!",
+    "price": "178940.00",
+    "available": false,
+    "created": "2025-11-11T12:20:38.525Z",
+    "updated": "2025-11-11T12:20:38.526Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 22,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "Galaxy-Book5",
+    "slug": "galaxy-book5",
+    "image": "products/25/11/11/Galaxy-Book5.jpg",
+    "description": "You want good quality the last word is this",
+    "price": "56789.00",
+    "available": true,
+    "created": "2025-11-11T12:23:26.932Z",
+    "updated": "2025-11-11T12:23:26.932Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 23,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "Wired Headphone",
+    "slug": "wired-headphone",
+    "image": "products/25/11/11/Headphone-Zone-7HZ-Legato04-removebg-preview.png",
+    "description": "Wired headphones deliver high-fidelity audio with zero latency, making them ideal for music lovers and professionals who prioritize sound quality. They offer reliable, plug-and-play performance without the need for charging, ensuring uninterrupted use for calls, gaming, or media. With durable builds and universal 3.5mm or USB-C connectivity, they remain a cost-effective choice for everyday listening.",
+    "price": "1999.99",
+    "available": true,
+    "created": "2025-11-11T12:34:59.129Z",
+    "updated": "2025-11-11T12:34:59.129Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 24,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "Wireless Headphone",
+    "slug": "wireless-headphone",
+    "image": "products/25/11/11/Headphone-zone-focal-hadenys-galleryimage1-removebg-preview.png",
+    "description": "Wireless headphones offer high-quality, immersive audio with the freedom of cord-free convenience, making them ideal for music, calls, and on-the-go use. They feature advanced technologies like active noise cancellation, long battery life (up to 50+ hours on some models), and seamless Bluetooth connectivity. Lightweight and comfortable, they deliver reliable performance for commuting, working, or relaxing — without sacrificing sound quality.",
+    "price": "6798.83",
+    "available": true,
+    "created": "2025-11-11T12:37:05.448Z",
+    "updated": "2025-11-11T12:37:05.448Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 25,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "Bluetooth Speaker",
+    "slug": "bluetooth-speaker",
+    "image": "products/25/11/11/images-removebg-preview.png",
+    "description": "Bluetooth speakers deliver high-quality, immersive audio with the freedom of wireless convenience, perfect for indoor and outdoor use. They offer features like long battery life, waterproof durability, and deep bass, ensuring powerful sound for music, parties, or travel. Easy to pair with smartphones and tablets, they provide seamless, portable listening anytime, anywhere.",
+    "price": "2138.44",
+    "available": true,
+    "created": "2025-11-11T12:39:11.905Z",
+    "updated": "2025-11-11T12:39:11.905Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 26,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "Iphone 17",
+    "slug": "iphone-17",
+    "image": "products/25/11/11/iphone_17.jpg",
+    "description": "The iPhone 17 features a 6.3-inch Super Retina XDR OLED display with 120Hz ProMotion, powered by the Apple A19 chip and running iOS 26. It boasts a 48MP dual-camera system, 8GB RAM, 256GB/512GB storage options, and a 3,692 mAh battery with fast charging and MagSafe support.",
+    "price": "88000.00",
+    "available": true,
+    "created": "2025-11-11T12:43:17.902Z",
+    "updated": "2025-11-11T12:43:17.902Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 27,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "Iphone 17 Pro",
+    "slug": "iphone-17-pro",
+    "image": "products/25/11/11/iphone_17pro.jpg",
+    "description": "The iPhone 17 Pro features a 6.3-inch Super Retina XDR OLED display with 120Hz ProMotion, powered by the Apple A19 Pro chip, 12GB RAM, and storage options up to 1TB. It boasts a professional-grade triple 48MP Pro Fusion camera system with 8x optical zoom, LiDAR scanner, and supports 4K/120fps Dolby Vision recording. With a 3,988 mAh battery (eSIM), USB-C fast charging, MagSafe, and iOS 26, it delivers top-tier performance and durability in an aerospace-grade aluminum design.",
+    "price": "138999.00",
+    "available": true,
+    "created": "2025-11-11T12:44:47.451Z",
+    "updated": "2025-11-11T12:44:47.451Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 28,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "Samsung S25",
+    "slug": "samsung-s25",
+    "image": "products/25/11/11/samsung_s25.png",
+    "description": "The Samsung Galaxy S25 features a 6.2-inch Dynamic LTPO AMOLED 2X display with a 120Hz refresh rate, powered by the Qualcomm Snapdragon 8 Elite chip, 12GB RAM, and up to 512GB storage. It boasts a triple rear camera system with a 50MP main sensor, 12MP ultrawide, and 10MP 3x telephoto, alongside a 12MP front camera, running Android 15 with One UI 7. The device includes a 4,000mAh battery with 25W fast charging, Qi2 wireless charging, IP68 rating, and is available in multiple colors like Navy, Icyblue, and Mint.",
+    "price": "90000.00",
+    "available": true,
+    "created": "2025-11-11T12:47:00.204Z",
+    "updated": "2025-11-11T12:47:00.204Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 29,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "Samsung Galaxy S25 Ultra 5G (Titanium Whitesilver, 256 GB)  (12 GB RAM)",
+    "slug": "samsung-galaxy-s25-ultra-5g-titanium-whitesilver-256-gb-12-gb-ram",
+    "image": "products/25/11/11/samsung_s25.jpg",
+    "description": "The Samsung Galaxy S25 Ultra 5G (Titanium Whitesilver, 256GB, 12GB RAM) features a 6.9-inch Dynamic AMOLED 2X display with 120Hz refresh rate and 2600 nits peak brightness, powered by the Snapdragon 8 Elite chip and Android 15 with One UI 7. It boasts a professional-grade quad camera system with a 200MP main sensor, 50MP ultrawide, dual telephoto lenses (3x and 5x optical zoom), and a 12MP front camera, supporting 8K video recording. The device includes a 5000mAh battery with 45W wired, 25W wireless (Qi2), and reverse wireless charging, along with IP68 rating, ultrasonic fingerprint sensor, and advanced Galaxy AI features.",
+    "price": "120000.00",
+    "available": true,
+    "created": "2025-11-11T12:50:58.406Z",
+    "updated": "2025-11-11T12:50:58.406Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 30,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "JBL PARTYBOX ENCORE ESSENTIAL HERO",
+    "slug": "jbl-partybox-encore-essential-hero",
+    "image": "products/25/11/11/JBL_PARTYBOX_ENCORE_ESSENTIAL_HERO_1605x1605px.webp",
+    "description": "The JBL PARTYBOX Encore Essential HERO delivers powerful 100W JBL Original Pro Sound with deep bass and a dynamic light show that syncs to the beat, perfect for immersive party experiences. It features Bluetooth 5.1, USB and AUX connectivity, a wired mic input for karaoke, and an IPX4 splash-proof design for added durability. With up to 6 hours of playtime and a portable handle, it's ideal for on-the-go entertainment.",
+    "price": "35672.00",
+    "available": true,
+    "created": "2025-11-11T12:53:30.217Z",
+    "updated": "2025-11-11T12:53:30.217Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 31,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "Bluetooth EarPod",
+    "slug": "bluetooth-earpod",
+    "image": "products/25/11/11/MUVX3-removebg-preview_bUhcuWE.png",
+    "description": "Bluetooth EarPods deliver a secure, ergonomic fit with enhanced sound isolation and rich audio quality, designed to sit comfortably in the ear canal for extended use. They offer seamless wireless connectivity, crisp calls, and are ideal for commuting, workouts, and daily listening.",
+    "price": "7890.00",
+    "available": true,
+    "created": "2025-11-11T12:56:55.542Z",
+    "updated": "2025-11-11T12:56:55.543Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 32,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "Sony-V13 High-Power Party Speaker with BLUETOOTH® Technology",
+    "slug": "sony-v13-high-power-party-speaker-with-bluetooth-technology",
+    "image": "products/25/11/11/Sony-V13_High-Power_Party_Speaker_with_BLUETOOTH_Technology.avif",
+    "description": "The Sony MHC-V13 High-Power Party Speaker delivers immersive, room-filling sound with a JET BASS BOOSTER for deep, punchy bass and two upward-facing tweeters for clear, dynamic audio. It features a vibrant multicolor light show that syncs to the beat, Bluetooth connectivity, NFC pairing, and wireless Party Chain to link up to 50 compatible speakers. With microphone and guitar inputs, the Fiestable app for karaoke scoring and playlist control, and a built-in handle for portability, it's the ultimate party companion.",
+    "price": "40566.00",
+    "available": true,
+    "created": "2025-11-11T12:58:24.773Z",
+    "updated": "2025-11-11T12:58:24.773Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 33,
+  "fields": {
+    "category": 3,
+    "vendor": 13,
+    "name": "Sony-V83D High-Power Party Speaker with BLUETOOTH® Technology",
+    "slug": "sony-v83d-high-power-party-speaker-with-bluetooth-technology",
+    "image": "products/25/11/11/Sony-V83D_High-Power_Party_Speaker_with_BLUETOOTH_Technolog.avif",
+    "description": "The Sony MHC-V83D High-Power Party Speaker delivers immersive, omnidirectional sound with 150W output, featuring JET BASS BOOSTER for deep bass and four high-efficiency tweeters for wide sound coverage. It includes dynamic multicolor party lights, Bluetooth connectivity, NFC pairing, HDMI output for TV audio, and dual microphone/guitar inputs for karaoke and live performance. Controlled via the Fiestable app, it supports gesture control, DJ effects, Taiko drum mode, and can wirelessly link with up to 50 compatible speakers for synchronized audio and lighting.",
+    "price": "32567.00",
+    "available": true,
+    "created": "2025-11-11T13:00:20.886Z",
+    "updated": "2025-11-11T13:00:20.886Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 34,
+  "fields": {
+    "category": 7,
+    "vendor": 14,
+    "name": "Jack and Jhon Flip",
+    "slug": "jack-and-jhon-flip",
+    "image": "products/25/11/12/jackandjhonsFlip.jpg",
+    "description": "\"Jack and Jhon Flip\" likely refers to a misspelling of either Jack & Jones flip flops, a line of men's casual footwear, or the J-K flip-flop, an electronic circuit named after engineer Jack Kilby. Alternatively, it may be a typo for adult content involving \"flip-fuck\" scenes featuring performers named Jack and John.",
+    "price": "1342.00",
+    "available": true,
+    "created": "2025-11-12T05:14:34.270Z",
+    "updated": "2025-11-12T05:14:34.271Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 35,
+  "fields": {
+    "category": 7,
+    "vendor": 14,
+    "name": "Casual Shoes For Men ",
+    "slug": "casual-shoes",
+    "image": "products/25/11/12/shoe1.webp",
+    "description": "Jack & Jones casual flip flops are stylish, lightweight men's footwear featuring cushioned footbeds, branded straps, and durable EVA or rubber soles for comfort and grip. Designed for everyday wear, they come in various colors and prints, combining urban fashion with practical, slip-on convenience.",
+    "price": "9871.00",
+    "available": true,
+    "created": "2025-11-12T06:23:46.607Z",
+    "updated": "2025-11-12T06:23:46.607Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 36,
+  "fields": {
+    "category": 7,
+    "vendor": 14,
+    "name": "Normal Chappels",
+    "slug": "normal-chappels",
+    "image": "products/25/11/12/foot-weare-normal3.webp",
+    "description": "Jack & Jones normal chappals are casual, comfortable footwear designed for everyday wear, featuring durable soles and soft footbeds for a relaxed fit. They come in simple, stylish designs with branded straps, ideal for a laid-back, modern look.",
+    "price": "785.00",
+    "available": true,
+    "created": "2025-11-12T06:25:34.056Z",
+    "updated": "2025-11-12T06:25:34.056Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 37,
+  "fields": {
+    "category": 7,
+    "vendor": 14,
+    "name": "Normal Chappels",
+    "slug": "normal-chappels",
+    "image": "products/25/11/12/footweare-normal.webp",
+    "description": "Jack & Jones normal chappals are casual, comfortable footwear designed for everyday wear, featuring durable soles and soft footbeds for a relaxed fit. They come in simple, stylish designs with branded straps, ideal for a laid-back, modern look.",
+    "price": "345.00",
+    "available": true,
+    "created": "2025-11-12T06:25:59.189Z",
+    "updated": "2025-11-12T06:25:59.189Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 38,
+  "fields": {
+    "category": 7,
+    "vendor": 14,
+    "name": "Normal Chappels",
+    "slug": "normal-chappels",
+    "image": "products/25/11/12/footweare-normal2.webp",
+    "description": "Jack & Jones normal chappals are casual, comfortable footwear designed for everyday wear, featuring durable soles and soft footbeds for a relaxed fit. They come in simple, stylish designs with branded straps, ideal for a laid-back, modern look.",
+    "price": "543.00",
+    "available": true,
+    "created": "2025-11-12T06:26:33.419Z",
+    "updated": "2025-11-12T06:26:33.419Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 39,
+  "fields": {
+    "category": 7,
+    "vendor": 14,
+    "name": "Casual Shoes Yellow For men ",
+    "slug": "casual-shoes",
+    "image": "products/25/11/12/shoe2.webp",
+    "description": "Jack & Jones casual flip flops are stylish, lightweight men's footwear featuring cushioned footbeds, branded straps, and durable EVA or rubber soles for comfort and grip. Designed for everyday wear, they come in various colors and prints, combining urban fashion with practical, slip-on convenience.",
+    "price": "876.00",
+    "available": true,
+    "created": "2025-11-12T06:27:47.185Z",
+    "updated": "2025-11-12T06:27:47.185Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 40,
+  "fields": {
+    "category": 7,
+    "vendor": 14,
+    "name": "Pure White Casual Shoes ",
+    "slug": "casual-shoes",
+    "image": "products/25/11/12/shoe3.webp",
+    "description": "Jack & Jones casual flip flops are stylish, lightweight men's footwear featuring cushioned footbeds, branded straps, and durable EVA or rubber soles for comfort and grip. Designed for everyday wear, they come in various colors and prints, combining urban fashion with practical, slip-on convenience.",
+    "price": "2569.00",
+    "available": true,
+    "created": "2025-11-12T06:28:13.573Z",
+    "updated": "2025-11-12T06:28:13.573Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 41,
+  "fields": {
+    "category": 7,
+    "vendor": 14,
+    "name": "White and Grey Shade Casual Shoes ",
+    "slug": "casual-shoes",
+    "image": "products/25/11/12/shoe4.webp",
+    "description": "Jack & Jones casual flip flops are stylish, lightweight men's footwear featuring cushioned footbeds, branded straps, and durable EVA or rubber soles for comfort and grip. Designed for everyday wear, they come in various colors and prints, combining urban fashion with practical, slip-on convenience.",
+    "price": "2345.00",
+    "available": true,
+    "created": "2025-11-12T06:28:42.071Z",
+    "updated": "2025-11-12T06:28:42.071Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 42,
+  "fields": {
+    "category": 1,
+    "vendor": 15,
+    "name": "Bluetooth Speaker",
+    "slug": "bluetooth-speaker",
+    "image": "products/25/11/12/images-removebg-preview.png",
+    "description": "Bluetooth speakers are portable, stylish audio devices designed for wireless music streaming, featuring built-in rechargeable batteries, USB and AUX connectivity, and durable, lightweight builds ideal for on-the-go use. They deliver clear sound with balanced bass and treble, support hands-free calling, and are suitable for both indoor and outdoor settings.",
+    "price": "2138.44",
+    "available": true,
+    "created": "2025-11-12T06:57:41.683Z",
+    "updated": "2025-11-12T06:57:41.683Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 43,
+  "fields": {
+    "category": 1,
+    "vendor": 15,
+    "name": "Sony-V83D High-Power Party Speaker with BLUETOOTH® Technology",
+    "slug": "sony-v83d-high-power-party-speaker-with-bluetooth-technology",
+    "image": "products/25/11/12/Sony-V83D_High-Power_Party_Speaker_with_BLUETOOTH_Technolog.avif",
+    "description": "The Sony MHC-V83D High-Power Party Speaker delivers immersive, omnidirectional sound with 150W output, featuring JET BASS BOOSTER for deep bass and four high-efficiency tweeters for wide sound coverage. It includes dynamic multicolor party lights, Bluetooth connectivity, NFC pairing, HDMI output for TV audio, and dual microphone/guitar inputs for karaoke and live performance. Controlled via the Fiestable app, it supports gesture control, DJ effects, Taiko drum mode, and can wirelessly link with up to 50 compatible speakers for synchronized audio and lighting.",
+    "price": "32567.00",
+    "available": true,
+    "created": "2025-11-12T07:12:47.898Z",
+    "updated": "2025-11-12T07:12:47.898Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 44,
+  "fields": {
+    "category": 1,
+    "vendor": 15,
+    "name": "Sony-V13 High-Power Party Speaker with BLUETOOTH® Technology",
+    "slug": "sony-v13-high-power-party-speaker-with-bluetooth-technology",
+    "image": "products/25/11/12/Sony-V13_High-Power_Party_Speaker_with_BLUETOOTH_Technology.avif",
+    "description": "The Sony MHC-V13 High-Power Party Speaker delivers immersive, room-filling sound with a JET BASS BOOSTER for deep, punchy bass and two upward-facing tweeters for clear, dynamic audio. It features a vibrant multicolor light show that syncs to the beat, Bluetooth connectivity, NFC pairing, and wireless Party Chain to link up to 50 compatible speakers. With microphone and guitar inputs, the Fiestable app for karaoke scoring and playlist control, and a built-in handle for portability, it's the ultimate party companion.",
+    "price": "40566.00",
+    "available": true,
+    "created": "2025-11-12T07:13:59.172Z",
+    "updated": "2025-11-12T07:13:59.172Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 45,
+  "fields": {
+    "category": 1,
+    "vendor": 15,
+    "name": "Bluetooth EarPod",
+    "slug": "bluetooth-earpod",
+    "image": "products/25/11/12/MUVX3-removebg-preview.png",
+    "description": "Bluetooth EarPods deliver a secure, ergonomic fit with enhanced sound isolation and rich audio quality, designed to sit comfortably in the ear canal for extended use. They offer seamless wireless connectivity, crisp calls, and are ideal for commuting, workouts, and daily listening.",
+    "price": "7890.00",
+    "available": true,
+    "created": "2025-11-12T07:15:20.046Z",
+    "updated": "2025-11-12T07:15:20.047Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 46,
+  "fields": {
+    "category": 1,
+    "vendor": 15,
+    "name": "JBL PARTYBOX ENCORE ESSENTIAL HERO",
+    "slug": "jbl-partybox-encore-essential-hero",
+    "image": "products/25/11/12/JBL_PARTYBOX_ENCORE_ESSENTIAL_HERO_1605x1605px.webp",
+    "description": "The JBL PARTYBOX Encore Essential HERO delivers powerful 100W JBL Original Pro Sound with deep bass and a dynamic light show that syncs to the beat, perfect for immersive party experiences. It features Bluetooth 5.1, USB and AUX connectivity, a wired mic input for karaoke, and an IPX4 splash-proof design for added durability. With up to 6 hours of playtime and a portable handle, it's ideal for on-the-go entertainment.",
+    "price": "35672.00",
+    "available": true,
+    "created": "2025-11-12T07:16:39.631Z",
+    "updated": "2025-11-12T07:16:39.631Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 47,
+  "fields": {
+    "category": 1,
+    "vendor": 15,
+    "name": "Wireless HeadPhone",
+    "slug": "wireless-headphone",
+    "image": "products/25/11/12/Headphone-zone-focal-hadenys-galleryimage1-removebg-preview.png",
+    "description": "Wireless headphones offer high-quality, immersive audio with the freedom of cord-free convenience, making them ideal for music, calls, and on-the-go use. They feature advanced technologies like active noise cancellation, long battery life (up to 50+ hours on some models), and seamless Bluetooth connectivity. Lightweight and comfortable, they deliver reliable performance for commuting, working, or relaxing — without sacrificing sound quality.",
+    "price": "6798.00",
+    "available": true,
+    "created": "2025-11-12T07:18:03.839Z",
+    "updated": "2025-11-12T07:18:03.839Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 49,
+  "fields": {
+    "category": 1,
+    "vendor": 15,
+    "name": "Wired HeadPhone",
+    "slug": "wired-headphone",
+    "image": "products/25/11/12/Headphone-Zone-7HZ-Legato04-removebg-preview_4QReG7V.png",
+    "description": "Wired headphones deliver high-fidelity audio with zero latency, making them ideal for music lovers and professionals who prioritize sound quality. They offer reliable, plug-and-play performance without the need for charging, ensuring uninterrupted use for calls, gaming, or media. With durable builds and universal 3.5mm or USB-C connectivity, they remain a cost-effective choice for everyday listening.",
+    "price": "1999.99",
+    "available": true,
+    "created": "2025-11-12T07:40:12.271Z",
+    "updated": "2025-11-12T07:40:12.271Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 50,
+  "fields": {
+    "category": 8,
+    "vendor": 16,
+    "name": "Scents The Rich Perfume",
+    "slug": "scents-the-rich-perfume",
+    "image": "products/25/11/12/41cixgFl2UL.webp",
+    "description": "Scents Perfume refers to fragrances crafted from a blend of natural and synthetic aromatic compounds designed to emit a pleasant and lasting aroma. These perfumes are composed of top, heart, and base notes that evolve over time, creating a unique olfactory experience tailored to personal style and mood.",
+    "price": "999.00",
+    "available": true,
+    "created": "2025-11-12T09:26:54.514Z",
+    "updated": "2025-11-12T09:26:54.514Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 51,
+  "fields": {
+    "category": 8,
+    "vendor": 16,
+    "name": "Royal OUD Intense Rich perfume",
+    "slug": "royal-oud-intense-rich-perfume",
+    "image": "products/25/11/12/perfume1.jpg",
+    "description": "Royal OUD Intense is a luxurious, unisex fragrance that opens with vibrant citrus and spicy notes of lemon, pink pepper, and bergamot, evolving into a heart of cedar, galbanum, and angelica root, all grounded by a rich, woody base of oud, sandalwood, and musk. Crafted by Creed, this Eau de Parfum embodies sophistication and warmth, making it ideal for evening wear or special occasions, with a lasting scent that projects elegance and depth.",
+    "price": "3872.00",
+    "available": true,
+    "created": "2025-11-12T09:34:46.659Z",
+    "updated": "2025-11-12T09:34:46.659Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 52,
+  "fields": {
+    "category": 8,
+    "vendor": 16,
+    "name": "Shadow Intense India's Strongest Perfume",
+    "slug": "shadow-intense-indias-strongest-perfume",
+    "image": "products/25/11/12/ShadowIntense50ml-min.webp",
+    "description": "Shadow Intense by OG Luxury is an extrait de parfum with a 40% concentration, opening with an enigmatic blend of lavender and black pepper, evolving into rich notes of leather and amber for a bold, mysterious character. Designed to last up to 24 hours, this intense fragrance offers a luxurious, long-lasting scent ideal for any occasion and those seeking a powerful, unforgettable presence.",
+    "price": "2435.00",
+    "available": true,
+    "created": "2025-11-12T09:38:22.329Z",
+    "updated": "2025-11-12T09:38:22.329Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 53,
+  "fields": {
+    "category": 8,
+    "vendor": 16,
+    "name": "Giovane ROSE Perfume",
+    "slug": "giovane-rose-perfume",
+    "image": "products/25/11/12/e8e6f820ad62e3e491875fffb49d809c.webp",
+    "description": "Giovane ROSE Perfume captures the essence of a blooming garden with its lush, velvety rose heart, wrapped in soft green and powdery notes for a romantic, timeless allure. Its delicate balance of freshness and warmth evokes elegance and femininity in every spritz.",
+    "price": "2500.00",
+    "available": true,
+    "created": "2025-11-12T12:53:46.820Z",
+    "updated": "2025-11-12T12:53:46.820Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 54,
+  "fields": {
+    "category": 8,
+    "vendor": 16,
+    "name": "SILLAGE PREMIUM PERFUME",
+    "slug": "sillage-premium-perfume",
+    "image": "products/25/11/12/TCB_3864_1_800x.webp",
+    "description": "SILLAGE PREMIUM PERFUME by Art & Parfums is a unisex fragrance that opens with a trail of oud, saffron, and violet, evolving into a heart of jasmine, olibanum, and raspberry before settling on a warm, sensual base of musk, vanilla, and amber. It embodies a lingering presence—less a memory and more a bold statement of being—crafted to evoke the lasting imprint of light, touch, and emotion.",
+    "price": "3000.00",
+    "available": true,
+    "created": "2025-11-12T12:56:57.435Z",
+    "updated": "2025-11-12T12:56:57.435Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 55,
+  "fields": {
+    "category": 5,
+    "vendor": 17,
+    "name": "Titan Edge Ceramic Quartz in Rich Black Dial Watch for Men",
+    "slug": "titan-edge-ceramic-quartz-in-rich-black-dial-watch-for-men",
+    "image": "products/25/11/12/titan_watch.webp",
+    "description": "The Titan Edge Ceramic Quartz in Rich Black Dial Watch for Men features a sleek, minimalist design with a scratch-resistant black ceramic case and strap, paired with a rich black dial and elegant rose gold-toned hands. With an ultra-slim 4.2 mm profile, sapphire crystal glass, and 30-meter water resistance, it combines lightweight durability with refined sophistication.",
+    "price": "37342.00",
+    "available": true,
+    "created": "2025-11-12T13:05:14.490Z",
+    "updated": "2025-11-12T13:05:14.490Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 56,
+  "fields": {
+    "category": 5,
+    "vendor": 17,
+    "name": "Titan Edge Ceramic Quartz in Arctic White Dial Watch for Men",
+    "slug": "titan-edge-ceramic-quartz-in-arctic-white-dial-watch-for-men",
+    "image": "products/25/11/12/titan_white1.webp",
+    "description": "The Titan Edge Ceramic Quartz in Arctic White Dial Watch for Men features a minimalist round dial with Roman numerals at 6 and 12, set within a sleek 47 mm white ceramic case and paired with a matching ceramic strap for a refined, modern look. Protected by scratch-resistant sapphire crystal and boasting an ultra-slim profile, it combines elegant design with durable, everyday functionality.",
+    "price": "35674.00",
+    "available": true,
+    "created": "2025-11-12T13:07:23.254Z",
+    "updated": "2025-11-12T13:07:23.254Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 57,
+  "fields": {
+    "category": 8,
+    "vendor": 17,
+    "name": "DIOR HOME PERFUME",
+    "slug": "dior-home-perfume",
+    "image": "products/25/11/12/Y0997193_C099700665_E02_RHC.webp",
+    "description": "DIOR HOME PERFUME encompasses a luxurious collection of scented lifestyle creations, including candles, diffusers, and home fragrances, crafted under La Collection Privée Christian Dior to evoke elegance and sensory richness. Featuring iconic scents like Oud Ispahan, Ambre Nuit, and Jardin d’Orangers, these home perfumes blend couture artistry with fine fragrance to transform living spaces into immersive olfactory experiences.",
+    "price": "3500.00",
+    "available": true,
+    "created": "2025-11-12T15:43:47.954Z",
+    "updated": "2025-11-12T15:43:47.954Z"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 4,
+  "fields": {
+    "user": 6,
+    "name": "rishad",
+    "email": "ranjithkrpt@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 14,
+  "fields": {
+    "user": 16,
+    "name": "nyn",
+    "email": "ranjithkrpsacdt@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 21,
+  "fields": {
+    "user": 23,
+    "name": "adlib",
+    "email": "ranjithkrpt@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 22,
+  "fields": {
+    "user": 24,
+    "name": "Ranjith",
+    "email": "ranjith@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 24,
+  "fields": {
+    "user": 26,
+    "name": "ranjith",
+    "email": "ranjithalp01@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 26,
+  "fields": {
+    "user": 28,
+    "name": "melvin",
+    "email": "melvin@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 27,
+  "fields": {
+    "user": 29,
+    "name": "rashid",
+    "email": "rashid@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 28,
+  "fields": {
+    "user": 30,
+    "name": "lbracloths",
+    "email": "libracloths@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 29,
+  "fields": {
+    "user": 31,
+    "name": "libraelectronics",
+    "email": "libraelectronics@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 30,
+  "fields": {
+    "user": 32,
+    "name": "librafootweare",
+    "email": "librafootwear@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 31,
+  "fields": {
+    "user": 33,
+    "name": "libraaudio",
+    "email": "libraaudio@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 32,
+  "fields": {
+    "user": 34,
+    "name": "libraperfume",
+    "email": "libraperfume@gmail.com"
+  }
+},
+{
+  "model": "store.customer",
+  "pk": 33,
+  "fields": {
+    "user": 35,
+    "name": "librawhatches",
+    "email": "librawhatches@gmail.com"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 1,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-13T12:08:50.472Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-11T05:41:45.385Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 2,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-13T12:12:16.415Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 3,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-13T12:12:43.596Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 4,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-13T12:31:42.035Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 5,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-15T06:28:55.846Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 6,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-15T06:31:13.060Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 7,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-15T12:27:39.010Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 8,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-16T10:03:54.672Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 9,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-16T10:08:42.618Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 10,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-16T10:15:10.345Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 11,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-16T10:17:20.951Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 12,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-16T10:23:04.721Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 13,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-16T10:37:58.664Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 14,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-17T07:56:59.174Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 15,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-10-18T06:35:52.858Z",
+    "complete": false,
+    "transaction_id": "zh4c34r4jke702dssc4eubookqfdzgoi",
+    "status": "pending",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 16,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-11-03T10:48:38.278Z",
+    "complete": true,
+    "transaction_id": "txn_19_1762166918",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 17,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-11-03T10:50:30.467Z",
+    "complete": true,
+    "transaction_id": "txn_19_1762167030",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 18,
+  "fields": {
+    "custamer": 24,
+    "date_odered": "2025-11-04T12:33:11.303Z",
+    "complete": true,
+    "transaction_id": "txn_22_1762259591",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 19,
+  "fields": {
+    "custamer": 24,
+    "date_odered": "2025-11-04T13:39:48.696Z",
+    "complete": true,
+    "transaction_id": "googlepay_22_1762263588",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-06T08:49:04.585Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 20,
+  "fields": {
+    "custamer": 26,
+    "date_odered": "2025-11-07T09:47:53.696Z",
+    "complete": true,
+    "transaction_id": "pi_3SQmGoJgqUXlMPgm1K4vAfOr",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-07T09:47:53.696Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 21,
+  "fields": {
+    "custamer": 26,
+    "date_odered": "2025-11-07T09:49:36.631Z",
+    "complete": true,
+    "transaction_id": "pi_3SQmITJgqUXlMPgm12lOKNaA",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-07T09:49:36.631Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 22,
+  "fields": {
+    "custamer": 27,
+    "date_odered": "2025-11-07T09:52:09.002Z",
+    "complete": true,
+    "transaction_id": "pi_3SQmKuJgqUXlMPgm0hPZJGHQ",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-07T09:52:09.002Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 23,
+  "fields": {
+    "custamer": 24,
+    "date_odered": "2025-11-08T04:56:23.769Z",
+    "complete": true,
+    "transaction_id": "pi_3SR4CGJgqUXlMPgm0pIMaqeN",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-08T04:56:23.770Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 24,
+  "fields": {
+    "custamer": 24,
+    "date_odered": "2025-11-08T05:12:55.678Z",
+    "complete": true,
+    "transaction_id": "pi_3SR4SGJgqUXlMPgm1LC6Nfg2",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-08T05:12:55.678Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 25,
+  "fields": {
+    "custamer": 24,
+    "date_odered": "2025-11-09T06:02:09.485Z",
+    "complete": true,
+    "transaction_id": "pi_1SRRhHJAJfZb9HEBPeQn7CrI",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-09T06:02:09.485Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 26,
+  "fields": {
+    "custamer": 24,
+    "date_odered": "2025-11-09T06:08:58.229Z",
+    "complete": true,
+    "transaction_id": "pi_1SRRmaJAJfZb9HEBAzobcxIH",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-09T06:08:58.229Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 27,
+  "fields": {
+    "custamer": 24,
+    "date_odered": "2025-11-11T04:29:25.044Z",
+    "complete": true,
+    "transaction_id": "pi_1SS9CdJAJfZb9HEBr7qvT3KY",
+    "status": "cancelled",
+    "tracking_number": "75635485HJDUDG",
+    "carrier": "Ekart-logistics",
+    "tracking_stage": "cancelled",
+    "shipped_at": "2025-11-11T05:37:27Z",
+    "delivered_at": "2025-11-28T05:37:33Z",
+    "last_updated": "2025-11-11T05:41:06.041Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 28,
+  "fields": {
+    "custamer": 24,
+    "date_odered": "2025-11-13T12:12:19.344Z",
+    "complete": true,
+    "transaction_id": "pi_1SSzNiJAJfZb9HEBstfcYJos",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-13T12:12:19.344Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 29,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-11-13T12:40:27.911Z",
+    "complete": true,
+    "transaction_id": "pi_1SSzoxJAJfZb9HEBdOFTpwVg",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-13T12:40:27.911Z"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 30,
+  "fields": {
+    "custamer": 4,
+    "date_odered": "2025-11-13T13:05:01.720Z",
+    "complete": true,
+    "transaction_id": "pi_1ST0ChJAJfZb9HEBuPEMUIwx",
+    "status": "paid",
+    "tracking_number": null,
+    "carrier": null,
+    "tracking_stage": "placed",
+    "shipped_at": null,
+    "delivered_at": null,
+    "last_updated": "2025-11-13T13:05:01.720Z"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 1,
+  "fields": {
+    "product": null,
+    "order": 1,
+    "quantity": 6,
+    "date_added": "2025-10-13T12:08:50.480Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 2,
+  "fields": {
+    "product": null,
+    "order": 2,
+    "quantity": 1,
+    "date_added": "2025-10-13T12:12:16.429Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 3,
+  "fields": {
+    "product": null,
+    "order": 3,
+    "quantity": 1,
+    "date_added": "2025-10-13T12:12:43.604Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 4,
+  "fields": {
+    "product": null,
+    "order": 4,
+    "quantity": 1,
+    "date_added": "2025-10-13T12:31:42.044Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 5,
+  "fields": {
+    "product": null,
+    "order": 5,
+    "quantity": 1,
+    "date_added": "2025-10-15T06:28:55.853Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 6,
+  "fields": {
+    "product": null,
+    "order": 6,
+    "quantity": 3,
+    "date_added": "2025-10-15T06:31:13.066Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 7,
+  "fields": {
+    "product": null,
+    "order": 7,
+    "quantity": 6,
+    "date_added": "2025-10-15T12:27:39.016Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 8,
+  "fields": {
+    "product": null,
+    "order": 8,
+    "quantity": 1,
+    "date_added": "2025-10-16T10:03:54.752Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 9,
+  "fields": {
+    "product": null,
+    "order": 9,
+    "quantity": 1,
+    "date_added": "2025-10-16T10:08:42.626Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 10,
+  "fields": {
+    "product": null,
+    "order": 10,
+    "quantity": 1,
+    "date_added": "2025-10-16T10:15:10.350Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 11,
+  "fields": {
+    "product": null,
+    "order": 11,
+    "quantity": 4,
+    "date_added": "2025-10-16T10:17:20.956Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 12,
+  "fields": {
+    "product": null,
+    "order": 12,
+    "quantity": 1,
+    "date_added": "2025-10-16T10:23:04.727Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 13,
+  "fields": {
+    "product": null,
+    "order": 13,
+    "quantity": 1,
+    "date_added": "2025-10-16T10:37:58.670Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 14,
+  "fields": {
+    "product": null,
+    "order": 14,
+    "quantity": 1,
+    "date_added": "2025-10-17T07:56:59.180Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 15,
+  "fields": {
+    "product": null,
+    "order": 15,
+    "quantity": 2,
+    "date_added": "2025-10-18T06:35:52.864Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 16,
+  "fields": {
+    "product": null,
+    "order": 16,
+    "quantity": 44,
+    "date_added": "2025-11-03T10:48:38.288Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 17,
+  "fields": {
+    "product": null,
+    "order": 16,
+    "quantity": 2,
+    "date_added": "2025-11-03T10:48:38.297Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 18,
+  "fields": {
+    "product": null,
+    "order": 17,
+    "quantity": 1,
+    "date_added": "2025-11-03T10:50:30.473Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 19,
+  "fields": {
+    "product": null,
+    "order": 18,
+    "quantity": 1,
+    "date_added": "2025-11-04T12:33:11.311Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 20,
+  "fields": {
+    "product": null,
+    "order": 19,
+    "quantity": 1,
+    "date_added": "2025-11-04T13:39:48.705Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 21,
+  "fields": {
+    "product": null,
+    "order": 19,
+    "quantity": 4,
+    "date_added": "2025-11-04T13:39:48.715Z",
+    "product_name": null,
+    "product_price": null,
+    "product_image": null
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 22,
+  "fields": {
+    "product": null,
+    "order": 20,
+    "quantity": 3,
+    "date_added": "2025-11-07T09:47:54.426Z",
+    "product_name": "T-shirt",
+    "product_price": "3425.00",
+    "product_image": "/media/products/25/11/03/1759753164196_I759W72.jpg"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 23,
+  "fields": {
+    "product": null,
+    "order": 21,
+    "quantity": 1,
+    "date_added": "2025-11-07T09:49:36.638Z",
+    "product_name": "Ear Pod",
+    "product_price": "454.45",
+    "product_image": "/media/products/25/11/04/MUVX3-removebg-preview.png"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 24,
+  "fields": {
+    "product": null,
+    "order": 22,
+    "quantity": 1,
+    "date_added": "2025-11-07T09:52:09.009Z",
+    "product_name": "Head Phone",
+    "product_price": "4895.23",
+    "product_image": "/media/products/25/11/04/Headphone-zone-focal-hadenys-galleryimage1-removebg-preview.png"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 25,
+  "fields": {
+    "product": null,
+    "order": 23,
+    "quantity": 1,
+    "date_added": "2025-11-08T04:56:23.778Z",
+    "product_name": "Head Phone",
+    "product_price": "4895.23",
+    "product_image": "/media/products/25/11/04/Headphone-zone-focal-hadenys-galleryimage1-removebg-preview.png"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 26,
+  "fields": {
+    "product": null,
+    "order": 23,
+    "quantity": 2,
+    "date_added": "2025-11-08T04:56:23.788Z",
+    "product_name": "T-shirt",
+    "product_price": "3425.00",
+    "product_image": "/media/products/25/11/03/1759753164196_I759W72.jpg"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 27,
+  "fields": {
+    "product": null,
+    "order": 24,
+    "quantity": 1,
+    "date_added": "2025-11-08T05:12:57.638Z",
+    "product_name": "T-shirt",
+    "product_price": "3425.00",
+    "product_image": "/media/products/25/11/03/1759753164196_I759W72.jpg"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 28,
+  "fields": {
+    "product": null,
+    "order": 25,
+    "quantity": 1,
+    "date_added": "2025-11-09T06:02:09.498Z",
+    "product_name": "T-shirt",
+    "product_price": "3425.00",
+    "product_image": "/media/products/25/11/03/1759753164196_I759W72.jpg"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 29,
+  "fields": {
+    "product": null,
+    "order": 25,
+    "quantity": 2,
+    "date_added": "2025-11-09T06:02:09.505Z",
+    "product_name": "Head Phone",
+    "product_price": "4895.23",
+    "product_image": "/media/products/25/11/04/Headphone-zone-focal-hadenys-galleryimage1-removebg-preview.png"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 30,
+  "fields": {
+    "product": null,
+    "order": 26,
+    "quantity": 1,
+    "date_added": "2025-11-09T06:08:58.235Z",
+    "product_name": "Ear Pod",
+    "product_price": "454.45",
+    "product_image": "/media/products/25/11/04/MUVX3-removebg-preview.png"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 31,
+  "fields": {
+    "product": null,
+    "order": 27,
+    "quantity": 1,
+    "date_added": "2025-11-11T04:29:25.051Z",
+    "product_name": "Bluetooth Speaker",
+    "product_price": "245.34",
+    "product_image": "/media/products/25/11/08/images-removebg-preview_SOoAOQ8.png"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 32,
+  "fields": {
+    "product": 40,
+    "order": 28,
+    "quantity": 1,
+    "date_added": "2025-11-13T12:12:19.350Z",
+    "product_name": "Pure White Casual Shoes ",
+    "product_price": "2569.00",
+    "product_image": "/media/products/25/11/12/shoe3.webp"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 33,
+  "fields": {
+    "product": 18,
+    "order": 29,
+    "quantity": 1,
+    "date_added": "2025-11-13T12:40:27.919Z",
+    "product_name": "Jacket For Mens",
+    "product_price": "3455.53",
+    "product_image": "/media/products/25/11/11/LOOSE-M-PANTS-F25.webp"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 34,
+  "fields": {
+    "product": 28,
+    "order": 30,
+    "quantity": 1,
+    "date_added": "2025-11-13T13:05:01.731Z",
+    "product_name": "Samsung S25",
+    "product_price": "90000.00",
+    "product_image": "/media/products/25/11/11/samsung_s25.png"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 1,
+  "fields": {
+    "custamer": null,
+    "order": 1,
+    "address": "casc",
+    "city": "zcdsvsd",
+    "state": "dvvsv",
+    "zipcode": "353453",
+    "date_added": "2025-10-13"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 2,
+  "fields": {
+    "custamer": null,
+    "order": 2,
+    "address": "acadc",
+    "city": "ascadscs",
+    "state": "dacdscad",
+    "zipcode": "234234",
+    "date_added": "2025-10-13"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 3,
+  "fields": {
+    "custamer": null,
+    "order": 3,
+    "address": "sfsv",
+    "city": "vsvs",
+    "state": "svf d",
+    "zipcode": "34244",
+    "date_added": "2025-10-13"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 4,
+  "fields": {
+    "custamer": null,
+    "order": 4,
+    "address": "sdsd",
+    "city": "xvxzc",
+    "state": "xc xzc",
+    "zipcode": "3434",
+    "date_added": "2025-10-13"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 5,
+  "fields": {
+    "custamer": null,
+    "order": 5,
+    "address": "ranjith",
+    "city": "favav",
+    "state": "acadcadca",
+    "zipcode": "242354",
+    "date_added": "2025-10-15"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 6,
+  "fields": {
+    "custamer": null,
+    "order": 6,
+    "address": "sdfsv",
+    "city": "svfvervsa",
+    "state": "sghtdfbd",
+    "zipcode": "345452",
+    "date_added": "2025-10-15"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 7,
+  "fields": {
+    "custamer": null,
+    "order": 7,
+    "address": "sfge",
+    "city": "fvdef",
+    "state": "dgbdgbdf",
+    "zipcode": "7656",
+    "date_added": "2025-10-15"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 8,
+  "fields": {
+    "custamer": null,
+    "order": 8,
+    "address": "assd",
+    "city": "svsfv",
+    "state": "sfvfdsv",
+    "zipcode": "35645",
+    "date_added": "2025-10-16"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 9,
+  "fields": {
+    "custamer": null,
+    "order": 9,
+    "address": "India",
+    "city": "vsvs",
+    "state": "acadcadca",
+    "zipcode": "242354",
+    "date_added": "2025-10-16"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 10,
+  "fields": {
+    "custamer": null,
+    "order": 10,
+    "address": "acadc",
+    "city": "ascadscs",
+    "state": "svf d",
+    "zipcode": "234234",
+    "date_added": "2025-10-16"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 11,
+  "fields": {
+    "custamer": null,
+    "order": 11,
+    "address": "acadc",
+    "city": "vsvs",
+    "state": "xc xzc",
+    "zipcode": "234234",
+    "date_added": "2025-10-16"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 12,
+  "fields": {
+    "custamer": null,
+    "order": 12,
+    "address": "India",
+    "city": "xvxzc",
+    "state": "dacdscad",
+    "zipcode": "34244",
+    "date_added": "2025-10-16"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 13,
+  "fields": {
+    "custamer": null,
+    "order": 13,
+    "address": "casc",
+    "city": "xvxzc",
+    "state": "acadcadca",
+    "zipcode": "3434",
+    "date_added": "2025-10-16"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 14,
+  "fields": {
+    "custamer": null,
+    "order": 14,
+    "address": "sfsv",
+    "city": "xvxzc",
+    "state": "svf d",
+    "zipcode": "3434",
+    "date_added": "2025-10-17"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 15,
+  "fields": {
+    "custamer": null,
+    "order": 15,
+    "address": "vsvs",
+    "city": "wrsv",
+    "state": "svs",
+    "zipcode": "34244",
+    "date_added": "2025-10-18"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 16,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "acadc",
+    "city": "zcdsvsd",
+    "state": "sghtdfbd",
+    "zipcode": "353453",
+    "date_added": "2025-10-20"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 17,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "India",
+    "city": "vsvs",
+    "state": "xc xzc",
+    "zipcode": "345452",
+    "date_added": "2025-10-20"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 18,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "casc",
+    "city": "ascadscs",
+    "state": "dvvsv",
+    "zipcode": "3434",
+    "date_added": "2025-10-22"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 19,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "casc",
+    "city": "ascadscs",
+    "state": "dvvsv",
+    "zipcode": "3434",
+    "date_added": "2025-10-22"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 20,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "acadc",
+    "city": "xvxzc",
+    "state": "xecsdcsc",
+    "zipcode": "345452",
+    "date_added": "2025-10-22"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 21,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "sfsv",
+    "city": "ascadscs",
+    "state": "dacdscad",
+    "zipcode": "34244",
+    "date_added": "2025-10-22"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 22,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "sfsv",
+    "city": "vsvs",
+    "state": "sghtdfbd",
+    "zipcode": "345452",
+    "date_added": "2025-10-22"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 23,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "fssa",
+    "city": "vsvs",
+    "state": "svf d",
+    "zipcode": "242354",
+    "date_added": "2025-10-22"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 24,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "acadc",
+    "city": "ascadscs",
+    "state": "acadcadca",
+    "zipcode": "242354",
+    "date_added": "2025-10-22"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 25,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "casc",
+    "city": "vsvs",
+    "state": "sghtdfbd",
+    "zipcode": "353453",
+    "date_added": "2025-10-22"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 26,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 27,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 28,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 29,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 30,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 31,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 32,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 33,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 34,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 35,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 36,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 37,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 38,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-23"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 39,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-24"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 40,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-30"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 41,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-10-31"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 42,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-11-01"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 43,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-11-02"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 44,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "87687t87",
+    "date_added": "2025-11-02"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 45,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "87687t87",
+    "date_added": "2025-11-02"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 46,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "23243",
+    "date_added": "2025-11-03"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 47,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "87687t87",
+    "date_added": "2025-11-03"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 48,
+  "fields": {
+    "custamer": null,
+    "order": 16,
+    "address": "Tgvfggv",
+    "city": "Dygvhbv",
+    "state": "Vfngffh",
+    "zipcode": "858545",
+    "date_added": "2025-11-03"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 49,
+  "fields": {
+    "custamer": null,
+    "order": 17,
+    "address": "Vggg",
+    "city": "Uhggv",
+    "state": "Ggbv",
+    "zipcode": "95985",
+    "date_added": "2025-11-03"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 50,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "effsvd",
+    "city": "vdsvsdv",
+    "state": "snj vjhsdb",
+    "zipcode": "45363",
+    "date_added": "2025-11-03"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 51,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "785",
+    "date_added": "2025-11-03"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 52,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "svcsdvs",
+    "zipcode": "785",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 53,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "effsvd",
+    "city": "vdsvsdv",
+    "state": "snj vjhsdb",
+    "zipcode": "87687t87",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 54,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dcdscwed",
+    "city": "ecwdc",
+    "state": "cwecw",
+    "zipcode": "3424343",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 55,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "kuruppath",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 56,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "kuruppath",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 57,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "kuruppath",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 58,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "kuruppath",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 59,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "kuruppath",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 60,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "kuruppath",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 61,
+  "fields": {
+    "custamer": 22,
+    "order": 18,
+    "address": "Aliparamba ",
+    "city": "Malappuram ",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 62,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "kuruppath",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 63,
+  "fields": {
+    "custamer": 22,
+    "order": 19,
+    "address": "Ranjith",
+    "city": "Malappuram ",
+    "state": "Kerala ",
+    "zipcode": "679357",
+    "date_added": "2025-11-04"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 64,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "India",
+    "city": "zcdsvsd",
+    "state": "acadcadca",
+    "zipcode": "242354",
+    "date_added": "2025-11-05"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 65,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "sfsv",
+    "city": "ascadscs",
+    "state": "svf d",
+    "zipcode": "345452",
+    "date_added": "2025-11-05"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 66,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "casc",
+    "city": "ascadscs",
+    "state": "svf d",
+    "zipcode": "234234",
+    "date_added": "2025-11-05"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 67,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "casc",
+    "city": "ascadscs",
+    "state": "svf d",
+    "zipcode": "234234",
+    "date_added": "2025-11-05"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 68,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "casc",
+    "city": "ascadscs",
+    "state": "svf d",
+    "zipcode": "234234",
+    "date_added": "2025-11-05"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 69,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "sdsd",
+    "city": "xvxzc",
+    "state": "dacdscad",
+    "zipcode": "242354",
+    "date_added": "2025-11-05"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 70,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "effsvd",
+    "city": "sswdvsdv",
+    "state": "snj vjhsdb",
+    "zipcode": "45363",
+    "date_added": "2025-11-06"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 71,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "vdsvsdv",
+    "state": "svcsdvs",
+    "zipcode": "45363",
+    "date_added": "2025-11-06"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 72,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "effsvd",
+    "city": "sswdvsdv",
+    "state": "snj vjhsdb",
+    "zipcode": "45363",
+    "date_added": "2025-11-06"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 73,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "sswdvsdv",
+    "state": "snj vjhsdb",
+    "zipcode": "45363",
+    "date_added": "2025-11-06"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 74,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "dvsdvs",
+    "city": "vdsvsdv",
+    "state": "svcsdvs",
+    "zipcode": "87687t87",
+    "date_added": "2025-11-06"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 75,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "effsvd",
+    "city": "vdsvsdv",
+    "state": "svcsdvs",
+    "zipcode": "87687t87",
+    "date_added": "2025-11-06"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 76,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "Malapuram",
+    "city": "Perinthalmana",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-06"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 77,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "Malapuram",
+    "city": "Perinthalmana",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-06"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 78,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "Malapuram",
+    "city": "Perinthalmana",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-06"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 79,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "Perinthalmanna",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-07"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 80,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "India",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-07"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 81,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "India",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "234234",
+    "date_added": "2025-11-07"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 82,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "sfsv",
+    "city": "zcdsvsd",
+    "state": "sghtdfbd",
+    "zipcode": "34244",
+    "date_added": "2025-11-07"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 83,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "India",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "345452",
+    "date_added": "2025-11-07"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 84,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "India",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-07"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 85,
+  "fields": {
+    "custamer": null,
+    "order": 20,
+    "address": "India",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-07"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 86,
+  "fields": {
+    "custamer": null,
+    "order": 21,
+    "address": "India",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-07"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 87,
+  "fields": {
+    "custamer": null,
+    "order": 22,
+    "address": "India",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-07"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 88,
+  "fields": {
+    "custamer": null,
+    "order": 23,
+    "address": "Malapuram",
+    "city": "Perinthalmana",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-08"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 89,
+  "fields": {
+    "custamer": null,
+    "order": 24,
+    "address": "Malapuram",
+    "city": "Perinthalmana",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-08"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 90,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "Malapuram",
+    "city": "Perinthalmana",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-08"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 91,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "Malapuram",
+    "city": "Perinthalmana",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-08"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 92,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "Malapuram",
+    "city": "Perinthalmana",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-08"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 93,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "India",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-09"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 94,
+  "fields": {
+    "custamer": null,
+    "order": 25,
+    "address": "India",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-09"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 95,
+  "fields": {
+    "custamer": null,
+    "order": 26,
+    "address": "India",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-09"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 96,
+  "fields": {
+    "custamer": null,
+    "order": 27,
+    "address": "Malapuram",
+    "city": "Perinthalmana",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-11"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 97,
+  "fields": {
+    "custamer": null,
+    "order": null,
+    "address": "Malapuram",
+    "city": "Perinthalmana",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-12"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 98,
+  "fields": {
+    "custamer": null,
+    "order": 28,
+    "address": "India",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-13"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 99,
+  "fields": {
+    "custamer": null,
+    "order": 29,
+    "address": "kuruppath",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-13"
+  }
+},
+{
+  "model": "store.shippingadderss",
+  "pk": 100,
+  "fields": {
+    "custamer": null,
+    "order": 30,
+    "address": "kuruppath",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "zipcode": "679357",
+    "date_added": "2025-11-13"
+  }
+},
+{
+  "model": "store.contactmessage",
+  "pk": 1,
+  "fields": {
+    "name": "ranjith",
+    "email": "unnown1200@gmail.com",
+    "subject": "ydcvydc",
+    "message": "gycdyvbey7uhcb",
+    "created_at": "2025-11-06T08:52:57.363Z",
+    "is_read": false
+  }
+}
+]

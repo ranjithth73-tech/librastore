@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Vendor Registration | LIBRA
+{%endblock %} 
+{% block content %}
+
+<style>
+  .auth-wrap {
+    background: radial-gradient(circle at top left, #ffc107, #ff6f61, #1a1a1a);
+    background-attachment: fixed;
+    font-family: "Poppins", sans-serif;
+    min-height: calc(100vh - 80px);
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 120px; /* Space above footer to avoid white gap */
+  }
+
+  .vendor-register-card {
+    background: rgba(25, 25, 25, 0.8);
+    backdrop-filter: blur(25px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 50px 40px;
+    width: 90%;
+    max-width: 520px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  .vendor-register-card h2 {
+    color: #ffc107;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .vendor-register-card p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+  }
+
+  /* Input fields */
+  .form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 50px;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffc107;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+    outline: none;
+  }
+
+  textarea.form-control {
+    border-radius: 15px;
+    min-height: 100px;
+    resize: none;
+  }
+
+  label {
+    color: #ffc107;
+    font-weight: 500;
+    display: block;
+    text-align: left;
+    margin-bottom: 6px;
+  }
+
+  .btn-glass {
+    background: linear-gradient(90deg, #ffc107, #ff6f61);
+    color: #000;
+    border: none;
+    padding: 13px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .btn-glass:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+  }
+
+  .vendor-login-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #ffc107;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .vendor-login-link:hover {
+    color: #ff6f61;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<div class="auth-wrap">
+<div class="vendor-register-card">
+  <h2><i class="bi bi-shop"></i> Vendor Registration</h2>
+  <p>Join LIBRA as a vendor and start selling your products today!</p>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} {% load widget_tweaks %} {% for field in form %}
+    <div class="mb-3 text-start">
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      {{ field|add_class:"form-control" }}
+
+       {% for error in field.errors %}
+      <div class="text-danger small mt-1">{{ error }}</div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+
+    <button type="submit" class="btn-glass mt-3">Register as Vendor</button>
+  </form>
+
+  <a href="{% url 'vendor_login' %}" class="vendor-login-link">
+    Already have an account? Login here
+  </a>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ category.name }} | LIBRA
+{% endblock %}
+
+{% block content %}
+<style>
+  body { background: #0e0e0e; color: #fff; font-family: "Poppins", sans-serif; }
+  .cat-hero { position: relative; height: 360px; overflow: hidden; }
+  .cat-hero video { position:absolute; top:50%; left:50%; min-width:100%; min-height:100%; width:auto; height:auto; transform:translate(-50%,-50%); filter:brightness(0.95); }
+  .cat-hero .overlay { position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%); }
+  .cat-hero .content { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; }
+  .cat-hero h1 { font-weight:800; letter-spacing:.5px; }
+
+  .filters { background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border-radius: 16px; padding: 16px; }
+  .product-card { background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border-radius: 14px; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; border: 1px solid rgba(255,255,255,0.12); }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+  .product-card img { width: 100%; height: 220px; object-fit: cover; }
+  .price { color: #ffc107; font-weight: 700; }
+  .btn-view { background: linear-gradient(90deg, #ffc107, #ff6f61); color: #000; border: none; }
+</style>
+
+{% if hero_video_url %}
+<section class="cat-hero">
+  <video autoplay muted loop playsinline>
+    <source src="{{ hero_video_url }}" />
+  </video>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="container">
+      <h1 class="display-5">{{ category.name }}</h1>
+      <p class="lead text-warning">Explore the best in {{ category.name }}</p>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="bg-black py-4">
+  <div class="container">
+    <form class="filters mb-4" method="get" action="">
+      <div class="row g-3 align-items-center">
+        <div class="col-12 col-lg-6">
+          <div class="input-group">
+            <span class="input-group-text bg-dark border-secondary text-warning">
+              <i class="bi bi-search"></i>
+            </span>
+            <input id="shopSearch" class="form-control border-secondary" type="search" placeholder="Search {{ category.name }}..." name="q" value="{{ q|default:'' }}" />
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="input-group">
+            <span class="input-group-text bg-dark border-secondary text-warning">
+              <i class="bi bi-sort-down"></i>
+            </span>
+            <select id="shopSort" class="form-select border-secondary" name="sort">
+              <option value="" {% if not sort %}selected{% endif %}>Sort by</option>
+              <option value="price_asc" {% if sort == 'price_asc' %}selected{% endif %}>Price: Low → High</option>
+              <option value="price_desc" {% if sort == 'price_desc' %}selected{% endif %}>Price: High → Low</option>
+              <option value="newest" {% if sort == 'newest' %}selected{% endif %}>Newest First</option>
+              <option value="name_asc" {% if sort == 'name_asc' %}selected{% endif %}>Name: A → Z</option>
+              <option value="name_desc" {% if sort == 'name_desc' %}selected{% endif %}>Name: Z → A</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <button type="submit" class="btn btn-view w-100 fw-semibold">
+            <i class="bi bi-funnel me-2"></i>Apply Filters
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="row g-4">
+      {% for product in products %}
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="product-card h-100 position-relative">
+          {% if product.image %}
+            <img loading="lazy" src="{{ product.image.url }}" alt="{{ product.name }}">
+          {% endif %}
+          <div class="p-3 text-center">
+            <h5 class="mb-1">{{ product.name }}</h5>
+            <div class="price mb-2">₹{{ product.price }}</div>
+            <a href="{% url 'product_details_by_id' product.id %}" class="btn btn-view btn-sm">View</a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+        <p class="text-center text-light">No products found in {{ category.name }}.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Debounce helper
+  function debounce(fn, delay){ let t; return function(){ clearTimeout(t); t = setTimeout(()=>fn.apply(this, arguments), delay); } }
+  const search = document.getElementById('shopSearch');
+  const sortSel = document.getElementById('shopSort');
+  const form = search ? search.closest('form') : null;
+  if (form && search) {
+    search.addEventListener('input', debounce(function(){ form.requestSubmit(); }, 400));
+  }
+  if (form && sortSel) {
+    sortSel.addEventListener('change', function(){ form.requestSubmit(); });
+  }
+</script>
+{% endblock %}

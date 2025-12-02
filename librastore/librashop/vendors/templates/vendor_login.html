@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block title %}
+Vendor Login | LIBRA
+{% endblock %}
+
+
+
+{% block content %}
+
+<style>
+  .auth-wrap {
+    background: radial-gradient(circle at top left, #ffc107, #ff6f61, #1a1a1a);
+    background-attachment: fixed;
+    font-family: "Poppins", sans-serif;
+    min-height: calc(100vh - 80px);
+    padding-top: 100px; /* space for navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 120px; /* Space above footer to avoid white gap */
+  }
+
+  .vendor-login-card {
+    background: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 40px 35px;
+    width: 90%;
+    max-width: 420px;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  .vendor-login-card h2 {
+    color: #ffc107;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+
+  .vendor-login-card p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+  }
+
+  .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 15px;
+    padding: 12px;
+  }
+
+  .form-control:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+  }
+
+  .btn-glass {
+    background: linear-gradient(90deg, #ffc107, #ff6f61);
+    color: #000;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s ease;
+  }
+
+  .btn-glass:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.6);
+  }
+
+  .vendor-links a {
+    color: #ffc107;
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  .vendor-links a:hover {
+    color: #ff6f61;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+</style>
+
+<div class="auth-wrap">
+<div class="vendor-login-card">
+  <h2><i class="bi bi-shop"></i> Vendor Login</h2>
+  <p>Welcome back! Access your vendor dashboard and manage your store.</p>
+
+  {% if messages %}
+    <div class="mb-2">
+      {% for message in messages %}
+        <div class="alert alert-warning py-2 my-2" role="alert">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if form and form.non_field_errors %}
+    <div class="alert alert-danger py-2" role="alert">
+      {% for err in form.non_field_errors %}
+        <div>{{ err }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Username" class="form-control" required>
+    <input type="password" name="password" placeholder="Password" class="form-control" required>
+    <input type="hidden" name="next" value="{% url 'vendor_dashboard' %}">
+    <button type="submit" class="btn-glass w-100 mt-2">Login</button>
+  </form>
+
+      <div class="vendor-links mt-3">
+        <a href="{% url 'password_reset' %}">Forgot Password?</a> |
+        <a href="{% url 'vendor_registration'%}">Register as Vendor</a> | 
+        <a href="{% url 'login' %}">Login as User</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

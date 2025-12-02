@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% block title %}Checkout | LIBRA{% endblock %}
+{% block content %}
+
+<style>
+  body {
+    background-color: #111;
+  }
+
+  .checkout-container {
+    margin-top: 120px;
+    padding: 40px 20px;
+    color: #fff;
+  }
+
+  .checkout-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    transition: 0.3s;
+  }
+
+  .checkout-card:hover {
+    box-shadow: 0 0 25px rgba(255,193,7,0.4);
+  }
+
+  .section-title {
+    color: #ffc107;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    border-radius: 10px;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: #ffc107;
+    box-shadow: 0 0 10px rgba(255,193,7,0.4);
+  }
+
+  label {
+    color: #ffc107;
+    font-weight: 500;
+  }
+
+  .summary-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 25px;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  .summary-title {
+    color: #ffc107;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+
+  .btn-place-order {
+    background: linear-gradient(90deg, #ffc107, #ff6f61);
+    border: none;
+    color: #000;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: 0.3s;
+    width: 100%;
+  }
+
+  .btn-place-order:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,193,7,0.6);
+  }
+
+  .order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .order-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+  .order-item span {
+    color: rgba(255,255,255,0.9);
+  }
+
+  @media (max-width: 991px) {
+    .checkout-card, .summary-card {
+      margin-bottom: 20px;
+    }
+  }
+</style>
+
+<div class="container checkout-container">
+  <h2 class="text-center mb-5 text-warning fw-bold">
+    <i class="bi bi-credit-card me-2"></i>Secure Checkout
+  </h2>
+
+  <div class="row g-4">
+    <!-- Left Side: Billing Form -->
+    <div class="col-lg-7">
+      <div class="checkout-card">
+        <h4 class="section-title">Billing & Shipping Details</h4>
+        <form method="POST" action="">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn-place-order mt-4">
+            <i class="bi bi-bag-check me-1"></i> Place Order
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right Side: Order Summary -->
+    <div class="col-lg-5">
+      <div class="summary-card">
+        <h4 class="summary-title">Order Summary</h4>
+
+        {% if cart_item %}
+          {% for item in cart_items %}
+          <div class="order-item">
+            <div class="d-flex align-items-center">
+              <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+              <div>
+                <span>{{ item.product.name }}</span><br>
+                <small>x {{ item.quantity }}</small>
+              </div>
+            </div>
+            <span>₹{{ item.subtotal }}</span>
+          </div>
+          {% endfor %}
+        {% else %}
+          <p class="text-light text-center py-4">No items in your cart.</p>
+        {% endif %}
+
+        <hr style="border-color: rgba(255,255,255,0.2);" />
+        <p class="d-flex justify-content-between"><span>Subtotal:</span> <strong>₹{{ cart_total }}</strong></p>
+        <p class="d-flex justify-content-between"><span>Shipping:</span> <strong>₹{{ shipping_charge }}</strong></p>
+        <hr style="border-color: rgba(255,255,255,0.2);" />
+        <h5 class="d-flex justify-content-between">
+          <span>Total:</span> <strong class="text-warning">₹{{ grand_total }}</strong>
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}Coupons | Admin{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="admin-hero d-flex justify-content-between align-items-center">
+    <div>
+      <h3 class="mb-1"><i class="bi bi-ticket-perforated-fill me-2"></i>Coupons</h3>
+      <div class="subtitle">Manage promo codes and campaign discounts</div>
+    </div>
+    <div class="d-flex gap-2">
+      <a href="{% url 'admin_coupon_add' %}" class="btn btn-warning"><i class="bi bi-plus-lg me-1"></i>Add Coupon</a>
+      <span class="badge badge-accent rounded-pill px-3 py-2">Total: {{ total_count }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="admin-wrap container">
+  {% if coupons %}
+  <div class="row g-3 row-cols-1 row-cols-md-2 row-cols-lg-3">
+    {% for c in coupons %}
+    <div class="col">
+      <div class="card card-glass h-100">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge badge-accent text-dark">{{ c.code }}</span>
+            {% if c.active %}
+            <span class="badge bg-success">Active</span>
+            {% else %}
+            <span class="badge bg-secondary">Inactive</span>
+            {% endif %}
+          </div>
+          <small class="text-muted-2">#{{ c.id }}</small>
+        </div>
+        <div class="card-body">
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <span class="info-chip">
+              <strong>Type:</strong>
+              <span class="ms-1 value">{{ c.discount_type }}</span>
+            </span>
+            <span class="info-chip">
+              <strong>Value:</strong>
+              <span class="ms-1 value">
+                {% if c.discount_type == 'Percentage' %}{{ c.value }}%{% else %}₹{{ c.value }}{% endif %}
+              </span>
+            </span>
+          </div>
+          <div class="small text-muted-2">
+            <i class="bi bi-calendar-event me-1"></i>From: {{ c.valid_from|date:"Y-m-d H:i" }}
+          </div>
+          <div class="small text-muted-2">
+            <i class="bi bi-calendar-check me-1"></i>To: {{ c.valid_to|date:"Y-m-d H:i" }}
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <div class="d-flex gap-2">
+            <a href="{% url 'admin_coupon_toggle' c.id %}" class="btn btn-sm btn-outline-light">
+              {% if c.active %}<i class="bi bi-pause-circle me-1"></i>Deactivate{% else %}<i class="bi bi-play-circle me-1"></i>Activate{% endif %}
+            </a>
+            <a href="{% url 'admin_coupon_edit' c.id %}" class="btn btn-sm btn-warning text-dark fw-semibold">
+              <i class="bi bi-pencil-square me-1"></i>Edit
+            </a>
+          </div>
+          <a href="{% url 'admin_coupon_delete' c.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete coupon {{ c.code }}?')">
+            <i class="bi bi-trash me-1"></i>Delete
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mt-3">
+    <small class="text-muted">Page {{ coupons.number }} of {{ coupons.paginator.num_pages }}</small>
+    <nav>
+      <ul class="pagination mb-0">
+        {% if coupons.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page=1">« First</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ coupons.previous_page_number }}">‹ Prev</a></li>
+        {% else %}
+        <li class="page-item disabled"><span class="page-link">« First</span></li>
+        <li class="page-item disabled"><span class="page-link">‹ Prev</span></li>
+        {% endif %}
+
+        <li class="page-item active"><span class="page-link">{{ coupons.number }}</span></li>
+
+        {% if coupons.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ coupons.next_page_number }}">Next ›</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ coupons.paginator.num_pages }}">Last »</a></li>
+        {% else %}
+        <li class="page-item disabled"><span class="page-link">Next ›</span></li>
+        <li class="page-item disabled"><span class="page-link">Last »</span></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+  {% else %}
+  <div class="card card-glass p-4 text-center">
+    <div class="mb-2"><i class="bi bi-ticket-perforated" style="font-size:2rem;color:#ffc107;"></i></div>
+    <div class="text-muted-2 mb-3">No coupons found.</div>
+    <a href="{% url 'admin_coupon_add' %}" class="btn btn-warning"><i class="bi bi-plus-lg me-1"></i>Create your first coupon</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
